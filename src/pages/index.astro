@@ -1,11 +1,28 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/home/Hero.astro';
+import About from '../components/home/About.astro';
+import Services from '../components/home/Services.astro';
+import Partners from '../components/home/Partners.astro';
+import WhyUs from '../components/home/WhyUs.astro';
+import CTA from '../components/home/CTA.astro';
 ---
 
-<Layout>
-	<Welcome />
+
+<Layout
+    title="Luatec Solutions | Infraestructura TI y Ciberseguridad"
+    description="Luatec Solutions ofrece servicios integrales de conectividad, ciberseguridad y consultoría tecnológica para potenciar tu empresa. Expertos en TI."
+>
+    <Header />
+    <main>
+        <Hero />
+        <About />
+        <Services />
+        <Partners />
+        <WhyUs />
+        <CTA />
+    </main>
+    <Footer />
 </Layout>

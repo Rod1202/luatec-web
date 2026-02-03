@@ -1,23 +1,86 @@
+---
+import { SEO } from "astro-seo";
+import "../styles/global.css";
+import LiquidEther from "../components/backgrounds/LiquidEther";
+
+interface Props {
+	title?: string;
+    description?: string;
+    image?: string;
+    canonical?: string;
+}
+
+const { 
+    title = "Luatec Solutions | Infraestructura TI y Ciberseguridad",
+    description = "Soluciones integrales en infraestructura IT, ciberseguridad y consultoría tecnológica para empresas.",
+    image = "/luatec-og.jpg",
+    canonical
+} = Astro.props;
+---
 <!doctype html>
-<html lang="en">
+<html class="dark" lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/luatec.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+        
+        <SEO
+            title={title}
+            description={description}
+            canonical={canonical}
+            openGraph={{
+                basic: {
+                    title: title,
+                    type: "website",
+                    image: image,
+                },
+                image: {
+                    alt: "Luatec Solutions Logo",
+                },
+            }}
+            extend={{
+                meta: [
+                    { name: "twitter:card", content: "summary_large_image" },
+                    { name: "twitter:title", content: title },
+                    { name: "twitter:description", content: description },
+                    { name: "twitter:image", content: image },
+                ],
+            }}
+        />
+
+        <link href="https://fonts.googleapis.com" rel="preconnect"/>
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 	</head>
-	<body>
+	<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+        <div class="fixed inset-0 -z-10 h-screen w-screen">
+            <LiquidEther
+                client:only="react"
+                colors={[ '#053D8A', '#6BA8FF', '#4D7BC9' ]}
+                mouseForce={20}
+                cursorSize={100}
+                isViscous
+                viscous={30}
+                iterationsViscous={32}
+                iterationsPoisson={32}
+                resolution={0.5}
+                isBounce={false}
+                autoDemo
+                autoSpeed={0.5}
+                autoIntensity={2.2}
+                takeoverDuration={0.25}
+                autoResumeDelay={3000}
+                autoRampDuration={0.6}
+            />
+        </div>
 		<slot />
+        <script>
+            import { initScrollAnimations } from "../scripts/scroll-animations.js";
+            document.addEventListener("DOMContentLoaded", initScrollAnimations);
+        </script>
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+

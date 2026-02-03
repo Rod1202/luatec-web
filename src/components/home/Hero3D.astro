@@ -1,0 +1,94 @@
+<section class="relative min-h-[100vh] flex items-center overflow-hidden" id="home">
+    
+    <!-- SVG Background Pattern from User Snippet -->
+    <svg class="bg-pattern absolute top-0 left-0 w-full h-full z-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+            <!-- Horizontal fade gradient (right to left) -->
+            <linearGradient id="fadeGradient" x1="100%" y1="0%" x2="0%" y2="0%">
+                <stop offset="0%" style="stop-color:#053D8A;stop-opacity:0" />
+                <stop offset="30%" style="stop-color:#053D8A;stop-opacity:0.3" />
+                <stop offset="100%" style="stop-color:#053D8A;stop-opacity:1" />
+            </linearGradient>
+            
+            <!-- Background gradient -->
+            <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#053D8A;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#0652B8;stop-opacity:1" />
+            </linearGradient>
+
+            <!-- 3D perspective pattern - horizontal skew -->
+            <pattern id="dotPattern3D" x="0" y="0" width="3.5" height="3" patternUnits="userSpaceOnUse" patternTransform="skewX(-30)">
+                <rect x="0.3" y="0.3" width="0.8" height="0.8" fill="#053D8A" opacity="0.6" rx="0.1"/>
+            </pattern>
+        </defs>
+        
+        <!-- Background with gradient -->
+        <rect width="100" height="100" fill="url(#bgGradient)"/>
+        
+        <!-- 3D Dot pattern with horizontal perspective -->
+        <rect width="100" height="100" fill="url(#dotPattern3D)"/>
+        
+        <!-- Horizontal fade overlay (darker on left, transparent on right) -->
+        <rect width="100" height="100" fill="url(#fadeGradient)"/>
+    </svg>
+
+    <!-- Main Content -->
+    <div class="main-content relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-12">
+        <h1 class="hero-title font-bold text-white mb-8 leading-tight">
+            Liderando el futuro con soluciones <span class="text-[#b8c5e0]">tecnológicas</span>
+        </h1>
+        <p class="hero-description text-[#b8c5e0] mb-10 max-w-xl text-lg leading-relaxed">
+            Impulsamos la transformación digital de su empresa en Lima y todo el Perú. Expertos en Servicios IT, Infraestructura Cloud y Ciberseguridad.
+        </p>
+        <a href="#servicios" class="cta-button">
+            VER SERVICIOS
+        </a>
+    </div>
+</section>
+
+<style>
+    /* Styles from provided snippet */
+    
+    .bg-pattern {
+        animation: patternMove 20s linear infinite;
+    }
+
+    @keyframes patternMove {
+        0% {
+            transform: translateX(0) translateY(0);
+        }
+        100% {
+            transform: translateX(-3.5%) translateY(-3%);
+        }
+    }
+
+    .hero-title {
+        font-size: 3.5rem; /* Fallback */
+    }
+
+    /* Media query to match snippet's h1 sizing logic slightly adjusted for this content */
+    @media (min-width: 768px) {
+        .hero-title {
+            font-size: 5.5rem;
+        }
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        border: 2px solid white;
+        border-radius: 50px;
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        letter-spacing: 0.05em;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        background: transparent;
+    }
+
+    .cta-button:hover {
+        background: white;
+        color: #053D8A;
+    }
+</style>

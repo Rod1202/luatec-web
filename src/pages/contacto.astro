@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactForm from '../components/contacto/ContactForm.astro';
+import ContactInfo from '../components/contacto/ContactInfo.astro';
+import Guarantee from '../components/contacto/Guarantee.astro';
+import Location from '../components/contacto/Location.astro';
+
+const title = "Contacto - Luatec Solutions";
+---
+
+<Layout
+    title="Contáctanos | Luatec Solutions"
+    description="Ponte en contacto con nuestro equipo de expertos en TI. Estamos listos para ayudarte a optimizar tu infraestructura tecnológica."
+>
+    <Header />
+    <main class="relative min-h-screen overflow-hidden pt-36">
+        <div class="absolute inset-0 dot-pattern opacity-20 pointer-events-none"></div>
+        <div class="absolute inset-0 hero-gradient pointer-events-none"></div>
+        
+        <section class="container mx-auto px-6 relative z-10 pb-20">
+            <div class="max-w-5xl mx-auto space-y-12">
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white">
+                        Contáctanos
+                    </h1>
+                </div>
+                <ContactForm />
+                <ContactInfo />
+                <Guarantee />
+                <Location />
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
