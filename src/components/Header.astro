@@ -3,70 +3,33 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
-<nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl z-50">
-  <div class="glass-card rounded-full px-6 py-3 flex items-center justify-between shadow-2xl relative z-50">
+<nav id="main-header" class="fixed top-6 left-1/2 -translate-x-1/2 w-full max-w-7xl z-50 px-6 transition-transform duration-300">
+  <div class="flex items-center justify-between relative z-50">
     <div class="flex items-center gap-2">
-      <img src="/models/logo_base.png" alt="LUATEC" class="h-16 w-auto" />
+      <img src="/models/logo_base.png" alt="LUATEC" class="h-25 w-auto" />
     </div>
     
-    <!-- Desktop Menu -->
-    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-      <a class={`transition-colors ${currentPath === "" ? "text-primary" : "hover:text-primary"}`} href="/">Inicio</a>
-      <a class={`transition-colors ${currentPath === "nosotros" ? "text-primary" : "hover:text-primary"}`} href="/nosotros">Nosotros</a>
-      <a class={`transition-colors ${currentPath === "soluciones" ? "text-primary" : "hover:text-primary"}`} href="/soluciones">Soluciones</a>
-      <a class={`transition-colors ${currentPath === "beneficios" ? "text-primary" : "hover:text-primary"}`} href="/beneficios">Beneficios</a>
-    </div>
-
     <div class="flex items-center gap-4">
-        <a class={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${currentPath === "contacto" ? "opacity-0 pointer-events-none hidden md:block" : "bg-primary hover:bg-blue-600 text-white shadow-lg shadow-primary/25 active:scale-95 hidden md:block"}`} href="/contacto">
+        <a class="px-8 py-3 rounded-full text-base font-semibold transition-all bg-primary hover:bg-blue-600 text-white shadow-lg shadow-primary/25 active:scale-95" href="/formulario">
         Contáctanos
         </a>
-
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-900 dark:text-white hover:text-primary transition-colors">
-            <span class="material-symbols-outlined text-3xl">menu</span>
-        </button>
     </div>
-  </div>
-
-  <!-- Mobile Menu Dropdown -->
-  <div id="mobile-menu" class="absolute top-full left-0 w-full mt-2 glass-card rounded-2xl p-6 flex flex-col gap-4 origin-top opacity-0 scale-y-95 pointer-events-none transition-all duration-300 md:hidden z-40">
-      <a class={`text-lg font-medium transition-colors ${currentPath === "" ? "text-primary" : "text-slate-900 dark:text-white hover:text-primary"}`} href="/">Inicio</a>
-      <a class={`text-lg font-medium transition-colors ${currentPath === "nosotros" ? "text-primary" : "text-slate-900 dark:text-white hover:text-primary"}`} href="/nosotros">Nosotros</a>
-      <a class={`text-lg font-medium transition-colors ${currentPath === "soluciones" ? "text-primary" : "text-slate-900 dark:text-white hover:text-primary"}`} href="/soluciones">Soluciones</a>
-      <a class={`text-lg font-medium transition-colors ${currentPath === "beneficios" ? "text-primary" : "text-slate-900 dark:text-white hover:text-primary"}`} href="/beneficios">Beneficios</a>
-      <a class={`px-5 py-3 rounded-xl text-center font-semibold transition-all ${currentPath === "contacto" ? "bg-slate-100 dark:bg-white/10 text-slate-500" : "bg-primary text-white shadow-lg shadow-primary/25"}`} href="/contacto">
-        Contáctanos
-      </a>
   </div>
 </nav>
 
 <script>
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    const icon = btn?.querySelector('span');
-    let isOpen = false;
+  let lastScrollY = window.scrollY;
+  const header = document.getElementById('main-header');
 
-    btn?.addEventListener('click', () => {
-        isOpen = !isOpen;
-        if (isOpen) {
-            menu?.classList.remove('opacity-0', 'scale-y-95', 'pointer-events-none');
-            // Change icon to close
-            if(icon) icon.textContent = 'close';
-        } else {
-            menu?.classList.add('opacity-0', 'scale-y-95', 'pointer-events-none');
-            // Change icon to menu
-            if(icon) icon.textContent = 'menu';
-        }
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (isOpen && !btn?.contains(e.target as Node) && !menu?.contains(e.target as Node)) {
-            isOpen = false;
-            menu?.classList.add('opacity-0', 'scale-y-95', 'pointer-events-none');
-            if(icon) icon.textContent = 'menu';
-        }
-    });
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > lastScrollY && window.scrollY > 50) {
+      // Scrolling down & past top
+      header?.classList.add('-translate-y-[200%]');
+    } else {
+      // Scrolling up
+      header?.classList.remove('-translate-y-[200%]');
+    }
+    lastScrollY = window.scrollY;
+  });
 </script>
 

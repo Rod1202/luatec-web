@@ -7,7 +7,15 @@ import About from '../components/home/About.astro';
 import Services from '../components/home/Services.astro';
 import Partners from '../components/home/Partners.astro';
 import WhyUs from '../components/home/WhyUs.astro';
-import CTA from '../components/home/CTA.astro';
+// Nosotros
+import MissionVision from '../components/nosotros/MissionVision.astro';
+import Values from '../components/nosotros/Values.astro';
+import Team from '../components/nosotros/Team.astro';
+// Soluciones
+import SolutionsList from '../components/soluciones/SolutionsList.astro';
+// Beneficios
+import BenefitsGrid from '../components/beneficios/BenefitsGrid.astro';
+import Stats from '../components/beneficios/Stats.astro';
 ---
 
 
@@ -22,7 +30,26 @@ import CTA from '../components/home/CTA.astro';
         <Services />
         <Partners />
         <WhyUs />
-        <CTA />
+    
+
+        <!-- Nosotros Section -->
+        <div id="nosotros" class="pt-20">
+            <MissionVision />
+            <Values />
+            <Team />
+        </div>
+
+        <!-- Soluciones Section -->
+        <div id="soluciones" class="pt-20">
+            <SolutionsList />
+        </div>
+
+
+        <!-- Beneficios Section -->
+        <div id="beneficios" class="pt-20">
+            <BenefitsGrid />
+            <Stats />
+        </div>
     </main>
     <Footer />
 </Layout>
