@@ -1,5 +1,7 @@
 ---
 import { SEO } from "astro-seo";
+import { Image } from "astro:assets";
+import backgroundImage from "../assets/background.avif";
 import "../styles/global.css";
 
 interface Props {
@@ -53,14 +55,16 @@ const {
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 	</head>
-	<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
-        <div class="fixed inset-0 -z-50 w-full h-full">
-            <img 
-                src="/img/background.avif" 
+	<body class="font-display text-slate-900 dark:text-slate-100 transition-colors duration-300">
+        <div class="fixed inset-0 -z-50 w-full h-full pointer-events-none">
+            <Image 
+                src={backgroundImage} 
                 alt="Background" 
+                width={1920}
+                height={1080}
                 class="w-full h-full object-cover object-center opacity-100 blur-sm"
+                loading="eager"
             />
-            <!-- Removed black overlay as requested -->
         </div>
 		<slot />
         <script>

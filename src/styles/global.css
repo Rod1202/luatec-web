@@ -27,9 +27,15 @@
 
     .glass-card {
         background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(12px);
+        backdrop-filter: blur(4px);
         border: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    @media (min-width: 768px) {
+        .glass-card {
+            backdrop-filter: blur(12px);
+        }
     }
 
     .service-card {
@@ -113,7 +119,20 @@
 }
 
 /* Scroll Snap Smoothness */
-/* Scroll Snap Smoothness */
+html {
+    background-color: #0a0a0b;
+    /* Base fallback */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-snap-type: y proximity;

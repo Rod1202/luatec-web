@@ -1,5 +1,13 @@
+---
+import { Image } from "astro:assets";
+import appleLogo from "../../assets/logos/apple.webp";
+import ciscoLogo from "../../assets/logos/cisco.webp";
+import hpLogo from "../../assets/logos/hp.webp";
+import hpeLogo from "../../assets/logos/hpe.webp";
+import lenovoLogo from "../../assets/logos/lenovo.webp";
+---
 <section class="py-10 bg-white/5 backdrop-blur-sm border-t border-white/10 w-full overflow-hidden">
-    <div class="container mx-auto px-6 mb-8">
+    <div class="container mx-auto px-4 md:px-6 mb-8">
         <h2 class="text-xl md:text-2xl font-bold text-center text-white/80">
             Alianzas Estratégicas
         </h2>
@@ -8,56 +16,56 @@
         <div class="flex w-max animate-scroll gap-16 items-center">
             <!-- Set 1 -->
             <div class="flex items-center gap-16 shrink-0 grayscale hover:grayscale-0 transition-all duration-500">
-                <img src="/logos/apple.webp" alt="Apple" class="h-10 md:h-12 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/cisco.webp" alt="Cisco" class="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/hp.webp" alt="HP" class="h-10 md:h-12 w-auto object-contain rounded-full opacity-60 hover:opacity-100" />
-                <img src="/logos/hpe.webp" alt="HPE" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/lenovo.webp" alt="Lenovo" class="h-5 md:h-7 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
+                <Image src={appleLogo} alt="Apple" width={48} height={48} class="h-10 md:h-12 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={ciscoLogo} alt="Cisco" width={40} height={40} class="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={hpLogo} alt="HP" width={48} height={48} class="h-10 md:h-12 w-auto object-contain rounded-full opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={hpeLogo} alt="HPE" width={32} height={32} class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={lenovoLogo} alt="Lenovo" width={28} height={28} class="h-5 md:h-7 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
             </div>
             
             <!-- Set 2 -->
             <div class="flex items-center gap-16 shrink-0 grayscale hover:grayscale-0 transition-all duration-500">
-                <img src="/logos/apple.webp" alt="Apple" class="h-10 md:h-12 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/cisco.webp" alt="Cisco" class="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/hp.webp" alt="HP" class="h-10 md:h-12 w-auto object-contain rounded-full opacity-60 hover:opacity-100" />
-                <img src="/logos/hpe.webp" alt="HPE" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/lenovo.webp" alt="Lenovo" class="h-5 md:h-7 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
+                <Image src={appleLogo} alt="Apple" width={48} height={48} class="h-10 md:h-12 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={ciscoLogo} alt="Cisco" width={40} height={40} class="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={hpLogo} alt="HP" width={48} height={48} class="h-10 md:h-12 w-auto object-contain rounded-full opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={hpeLogo} alt="HPE" width={32} height={32} class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={lenovoLogo} alt="Lenovo" width={28} height={28} class="h-5 md:h-7 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
             </div>
 
             <!-- Set 3 -->
             <div class="flex items-center gap-16 shrink-0 grayscale hover:grayscale-0 transition-all duration-500">
-                <img src="/logos/apple.webp" alt="Apple" class="h-10 md:h-12 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/cisco.webp" alt="Cisco" class="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/hp.webp" alt="HP" class="h-10 md:h-12 w-auto object-contain rounded-full opacity-60 hover:opacity-100" />
-                <img src="/logos/hpe.webp" alt="HPE" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/lenovo.webp" alt="Lenovo" class="h-5 md:h-7 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
+                <Image src={appleLogo} alt="Apple" width={48} height={48} class="h-10 md:h-12 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={ciscoLogo} alt="Cisco" width={40} height={40} class="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={hpLogo} alt="HP" width={48} height={48} class="h-10 md:h-12 w-auto object-contain rounded-full opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={hpeLogo} alt="HPE" width={32} height={32} class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={lenovoLogo} alt="Lenovo" width={28} height={28} class="h-5 md:h-7 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
             </div>
 
             <!-- Set 4 -->
             <div class="flex items-center gap-16 shrink-0 grayscale hover:grayscale-0 transition-all duration-500">
-                <img src="/logos/apple.webp" alt="Apple" class="h-10 md:h-12 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/cisco.webp" alt="Cisco" class="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/hp.webp" alt="HP" class="h-10 md:h-12 w-auto object-contain rounded-full opacity-60 hover:opacity-100" />
-                <img src="/logos/hpe.webp" alt="HPE" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/lenovo.webp" alt="Lenovo" class="h-5 md:h-7 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
+                <Image src={appleLogo} alt="Apple" width={48} height={48} class="h-10 md:h-12 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={ciscoLogo} alt="Cisco" width={40} height={40} class="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={hpLogo} alt="HP" width={48} height={48} class="h-10 md:h-12 w-auto object-contain rounded-full opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={hpeLogo} alt="HPE" width={32} height={32} class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={lenovoLogo} alt="Lenovo" width={28} height={28} class="h-5 md:h-7 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
             </div>
 
             <!-- Set 5 -->
             <div class="flex items-center gap-16 shrink-0 grayscale hover:grayscale-0 transition-all duration-500">
-                <img src="/logos/apple.webp" alt="Apple" class="h-10 md:h-12 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/cisco.webp" alt="Cisco" class="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/hp.webp" alt="HP" class="h-10 md:h-12 w-auto object-contain rounded-full opacity-60 hover:opacity-100" />
-                <img src="/logos/hpe.webp" alt="HPE" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/lenovo.webp" alt="Lenovo" class="h-5 md:h-7 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
+                <Image src={appleLogo} alt="Apple" width={48} height={48} class="h-10 md:h-12 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={ciscoLogo} alt="Cisco" width={40} height={40} class="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={hpLogo} alt="HP" width={48} height={48} class="h-10 md:h-12 w-auto object-contain rounded-full opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={hpeLogo} alt="HPE" width={32} height={32} class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={lenovoLogo} alt="Lenovo" width={28} height={28} class="h-5 md:h-7 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
             </div>
 
             <!-- Set 6 -->
             <div class="flex items-center gap-16 shrink-0 grayscale hover:grayscale-0 transition-all duration-500">
-                <img src="/logos/apple.webp" alt="Apple" class="h-10 md:h-12 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/cisco.webp" alt="Cisco" class="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/hp.webp" alt="HP" class="h-10 md:h-12 w-auto object-contain rounded-full opacity-60 hover:opacity-100" />
-                <img src="/logos/hpe.webp" alt="HPE" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
-                <img src="/logos/lenovo.webp" alt="Lenovo" class="h-5 md:h-7 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" />
+                <Image src={appleLogo} alt="Apple" width={48} height={48} class="h-10 md:h-12 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={ciscoLogo} alt="Cisco" width={40} height={40} class="h-8 md:h-10 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={hpLogo} alt="HP" width={48} height={48} class="h-10 md:h-12 w-auto object-contain rounded-full opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={hpeLogo} alt="HPE" width={32} height={32} class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
+                <Image src={lenovoLogo} alt="Lenovo" width={28} height={28} class="h-5 md:h-7 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100" loading="lazy" />
             </div>
         </div>
     </div>

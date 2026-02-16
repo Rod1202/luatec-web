@@ -235,12 +235,14 @@ import { MdDone } from "react-icons/md";
 
     if (container && track && cards.length > 0) {
         
+        const isMobile = window.innerWidth < 768;
+
         // Optimize rendering on TRACK (Viewport is static)
         gsap.set(track, { x: 0, willChange: "transform", force3D: true });
         
         // Calculate exact distance to center the LAST card
         const getScrollDistance = () => {
-            const lastCard = cards[cards.length - 1];
+            const lastCard = cards[cards.length - 1] as HTMLElement;
             if (!lastCard) return 0;
 
             const lastCardCenter = lastCard.offsetLeft + (lastCard.offsetWidth / 2);
@@ -250,14 +252,14 @@ import { MdDone } from "react-icons/md";
         };
 
         // --- 1. Track Animation (Transform X) ---
-        gsap.to(track, {
+        const timeline = gsap.to(track, {
             x: () => -getScrollDistance(), 
             ease: "none",
             scrollTrigger: {
                 trigger: "#solutions-carousel",
                 start: "top top",
                 end: () => "+=" + getScrollDistance(),
-                scrub: 1,
+                scrub: isMobile ? 0.5 : 1, // Faster scrub for mobile responsiveness
                 pin: true,
                 invalidateOnRefresh: true,
                 anticipatePin: 1,
@@ -268,7 +270,7 @@ import { MdDone } from "react-icons/md";
                     document.documentElement.style.scrollSnapType = "none";
                 },
                 onLeave: () => { 
-                    if(main) main.style.scrollSnapType = "";
+                    if(main) (main as HTMLElement).style.scrollSnapType = "";
                     document.documentElement.style.scrollSnapType = "";
                 },
                 onEnterBack: () => { 
@@ -276,13 +278,13 @@ import { MdDone } from "react-icons/md";
                     document.documentElement.style.scrollSnapType = "none";
                 },
                 onLeaveBack: () => { 
-                    if(main) main.style.scrollSnapType = "";
+                    if(main) (main as HTMLElement).style.scrollSnapType = "";
                     document.documentElement.style.scrollSnapType = "";
                 }
             }
         });
 
-        // --- 2. Focus Logic ---
+        // --- 2. Focus Logic (Optimized) ---
         const setters = Array.from(cards).map(card => ({
             scale: gsap.quickSetter(card, "scale"),
             opacity: gsap.quickSetter(card, "opacity"),
@@ -291,14 +293,12 @@ import { MdDone } from "react-icons/md";
         }));
 
         const updateCards = () => {
-            // --- NEW LOGIC: Visual Position (getBoundingClientRect) ---
             const viewportCenter = window.innerWidth / 2;
             const maxDistance = window.innerWidth / 2; 
 
             let closestIndex = 0;
             let minDiff = Infinity;
             
-            // 1. Find the card visually closest to the center
             cards.forEach((card, i) => {
                 const rect = card.getBoundingClientRect();
                 const cardCenter = rect.left + rect.width / 2;
@@ -310,7 +310,6 @@ import { MdDone } from "react-icons/md";
                 }
             });
 
-            // 2. Apply styles based on visual distance
             cards.forEach((card, i) => {
                 const rect = card.getBoundingClientRect();
                 const cardCenter = rect.left + rect.width / 2;
@@ -337,7 +336,21 @@ import { MdDone } from "react-icons/md";
             });
         };
 
-        gsap.ticker.add(updateCards);
+        // --- 3. Intersection Observer for Performance ---
+        const carouselSection = document.getElementById('solutions-carousel');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    gsap.ticker.add(updateCards);
+                } else {
+                    gsap.ticker.remove(updateCards);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        if (carouselSection) observer.observe(carouselSection);
+        
+        // Initial run
         updateCards();
     }
 </script>

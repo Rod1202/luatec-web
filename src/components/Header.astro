@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import logoBase from "../assets/branding/logo_base.png";
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 ---
@@ -7,12 +9,23 @@ const currentPath = pathname.slice(1); // remove the first "/"
   <div class="max-w-7xl mx-auto flex items-center justify-between">
     <div class="flex items-center gap-2">
       <a href="/" aria-label="Volver al inicio" class="cursor-pointer transition-transform hover:scale-105">
-        <img src="/models/logo_base.png" alt="LUATEC" class="h-20 w-auto scale-110 origin-left translate-y-[1px] transition-transform duration-300" />
+        <Image 
+          src={logoBase} 
+          alt="LUATEC" 
+          width={200}
+          height={80}
+          class="h-20 w-auto scale-110 origin-left translate-y-[1px] transition-transform duration-300" 
+          loading="eager"
+        />
       </a>
     </div>
     
     <div class="flex items-center gap-4">
-        <a class="px-8 py-3 rounded-full text-base font-semibold transition-all bg-primary hover:bg-blue-700 text-white shadow-lg shadow-primary/25 active:scale-95 border-none" href="/formulario">
+        <a 
+          class="px-8 py-3 rounded-full text-base font-semibold transition-all bg-primary hover:bg-blue-700 text-white shadow-lg shadow-primary/25 active:scale-95 border-none" 
+          href="/formulario"
+          data-astro-prefetch
+        >
         Contáctanos
         </a>
     </div>
