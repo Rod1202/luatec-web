@@ -116,9 +116,15 @@
 /* Scroll Snap Smoothness */
 html {
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
     scroll-padding-top: 0;
     overflow-y: scroll;
+}
+
+@media (min-width: 768px) {
+    html {
+        scroll-snap-type: y mandatory;
+    }
 }
 
 /* Scroll Animation Utilities */
