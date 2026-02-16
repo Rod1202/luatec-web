@@ -291,28 +291,30 @@ import { MdDone } from "react-icons/md";
         }));
 
         const updateCards = () => {
-            const currentX = gsap.getProperty(track, "x") || 0; // Read from TRACK
-            const scrollPos = -currentX; 
-            
-            const viewportWidth = container.clientWidth;
-            const center = scrollPos + viewportWidth / 2;
-            const maxDistance = viewportWidth / 2;
-            
+            // --- NEW LOGIC: Visual Position (getBoundingClientRect) ---
+            const viewportCenter = window.innerWidth / 2;
+            const maxDistance = window.innerWidth / 2; 
+
             let closestIndex = 0;
             let minDiff = Infinity;
             
+            // 1. Find the card visually closest to the center
             cards.forEach((card, i) => {
-                const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-                const diff = Math.abs(center - cardCenter);
+                const rect = card.getBoundingClientRect();
+                const cardCenter = rect.left + rect.width / 2;
+                const diff = Math.abs(viewportCenter - cardCenter);
+                
                 if (diff < minDiff) {
                     minDiff = diff;
                     closestIndex = i;
                 }
             });
 
+            // 2. Apply styles based on visual distance
             cards.forEach((card, i) => {
-                const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-                const distance = Math.abs(center - cardCenter);
+                const rect = card.getBoundingClientRect();
+                const cardCenter = rect.left + rect.width / 2;
+                const distance = Math.abs(viewportCenter - cardCenter);
                 const progress = Math.min(distance / maxDistance, 1);
 
                 const isFocused = (i === closestIndex);

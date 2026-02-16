@@ -3,11 +3,11 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
-<nav id="main-header" class="fixed top-0 left-0 w-full z-50 px-6 py-4 transition-all duration-300">
+<nav id="main-header" class="fixed top-0 left-0 w-full z-50 px-6 py-2 transition-all duration-300">
   <div class="max-w-7xl mx-auto flex items-center justify-between">
     <div class="flex items-center gap-2">
       <a href="/" aria-label="Volver al inicio" class="cursor-pointer transition-transform hover:scale-105">
-        <img src="/models/logo_base.png" alt="LUATEC" class="h-20 w-auto" />
+        <img src="/models/logo_base.png" alt="LUATEC" class="h-20 w-auto scale-110 origin-left translate-y-[1px] transition-transform duration-300" />
       </a>
     </div>
     
@@ -21,40 +21,29 @@ const currentPath = pathname.slice(1); // remove the first "/"
 
 <script>
   const header = document.getElementById('main-header');
-  let lastScrollY = window.scrollY;
+  // Target the logo image specifically for the shrink effect
+  const logo = header?.querySelector('div a img'); 
 
   window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY;
-    
-    // Logic: 
-    // User requested "El background del nav no debe de existir (transparente)"
-    // But also "header has to remain transparent when I do the reverse scroll"
-    // And generally headers need background on scroll down for readability.
-    // However, the user explicitly said "background ... must not exist". 
-    // I will set it to transparent but maybe keep the blur for readability if they scroll down?
-    // "El background del nav no debe de existir" -> Implies NO background color.
-    
-    if (currentScrollY <= 50 || currentScrollY < lastScrollY) {
-      // At top OR Scrolling UP -> Full Transparent
-      header?.classList.remove('bg-[#053D8A]/80', 'backdrop-blur-md', 'shadow-lg', 'bg-slate-900');
-      header?.classList.add('bg-transparent');
-      header?.classList.remove('py-2');
-      header?.classList.add('py-4');
-    } else {
-      // Scrolling DOWN -> Keep it transparent as requested ("no quiero que tenga ese background azul")
-      // User emphasized "no exista ningun tipo de degrado" (for hero) and "no quiero que tenga ese background azul" (for header).
-      // I will keep the padding change for "shrink" effect but remove the color.
-      
-      header?.classList.remove('bg-[#053D8A]/80', 'bg-slate-900'); // Remove specific color
-      header?.classList.add('bg-transparent', 'backdrop-blur-sm'); // Keep subtle blur for readability? Or just transparent?
-      // "no quiero que tenga ese background azul" -> implied color.
-      // I will leave backdrop-blur-sm as a compromise for readability, but fully remove the blue.
-      
-      header?.classList.remove('py-4');
-      header?.classList.add('py-2');
-    }
 
-    lastScrollY = currentScrollY;
+    if (currentScrollY > 50) {
+      // SCROLLED STATE
+      header?.classList.add('backdrop-blur-sm');
+      
+      // Use efficient toggle for scale to ensure no conflicts
+      logo?.classList.remove('scale-110', 'translate-y-[1px]');
+      logo?.classList.add('scale-110');
+      
+    } else {
+      // TOP STATE
+      header?.classList.remove('backdrop-blur-sm');
+      
+      logo?.classList.remove('scale-90');
+      logo?.classList.add('scale-110', 'translate-y-[1px]');
+    }
+    
+    // NOTE: Padding (py-2) remains fixed. No layout shifts.
   });
 </script>
 
