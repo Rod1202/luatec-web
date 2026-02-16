@@ -3,14 +3,16 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
-<nav id="main-header" class="fixed top-6 left-1/2 -translate-x-1/2 w-full max-w-7xl z-50 px-6 transition-transform duration-300">
-  <div class="flex items-center justify-between relative z-50">
+<nav id="main-header" class="fixed top-0 left-0 w-full z-50 px-6 py-4 transition-all duration-300">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
     <div class="flex items-center gap-2">
-      <img src="/models/logo_base.png" alt="LUATEC" class="h-25 w-auto" />
+      <a href="/" aria-label="Volver al inicio" class="cursor-pointer transition-transform hover:scale-105">
+        <img src="/models/logo_base.png" alt="LUATEC" class="h-20 w-auto" />
+      </a>
     </div>
     
     <div class="flex items-center gap-4">
-        <a class="px-8 py-3 rounded-full text-base font-semibold transition-all bg-primary hover:bg-blue-600 text-white shadow-lg shadow-primary/25 active:scale-95" href="/formulario">
+        <a class="px-8 py-3 rounded-full text-base font-semibold transition-all bg-primary hover:bg-blue-700 text-white shadow-lg shadow-primary/25 active:scale-95 border-none" href="/formulario">
         Contáctanos
         </a>
     </div>
@@ -18,18 +20,41 @@ const currentPath = pathname.slice(1); // remove the first "/"
 </nav>
 
 <script>
-  let lastScrollY = window.scrollY;
   const header = document.getElementById('main-header');
+  let lastScrollY = window.scrollY;
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > lastScrollY && window.scrollY > 50) {
-      // Scrolling down & past top
-      header?.classList.add('-translate-y-[200%]');
+    const currentScrollY = window.scrollY;
+    
+    // Logic: 
+    // User requested "El background del nav no debe de existir (transparente)"
+    // But also "header has to remain transparent when I do the reverse scroll"
+    // And generally headers need background on scroll down for readability.
+    // However, the user explicitly said "background ... must not exist". 
+    // I will set it to transparent but maybe keep the blur for readability if they scroll down?
+    // "El background del nav no debe de existir" -> Implies NO background color.
+    
+    if (currentScrollY <= 50 || currentScrollY < lastScrollY) {
+      // At top OR Scrolling UP -> Full Transparent
+      header?.classList.remove('bg-[#053D8A]/80', 'backdrop-blur-md', 'shadow-lg', 'bg-slate-900');
+      header?.classList.add('bg-transparent');
+      header?.classList.remove('py-2');
+      header?.classList.add('py-4');
     } else {
-      // Scrolling up
-      header?.classList.remove('-translate-y-[200%]');
+      // Scrolling DOWN -> Keep it transparent as requested ("no quiero que tenga ese background azul")
+      // User emphasized "no exista ningun tipo de degrado" (for hero) and "no quiero que tenga ese background azul" (for header).
+      // I will keep the padding change for "shrink" effect but remove the color.
+      
+      header?.classList.remove('bg-[#053D8A]/80', 'bg-slate-900'); // Remove specific color
+      header?.classList.add('bg-transparent', 'backdrop-blur-sm'); // Keep subtle blur for readability? Or just transparent?
+      // "no quiero que tenga ese background azul" -> implied color.
+      // I will leave backdrop-blur-sm as a compromise for readability, but fully remove the blue.
+      
+      header?.classList.remove('py-4');
+      header?.classList.add('py-2');
     }
-    lastScrollY = window.scrollY;
+
+    lastScrollY = currentScrollY;
   });
 </script>
 

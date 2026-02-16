@@ -3,16 +3,14 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Hero from '../components/home/Hero.astro';
-import About from '../components/home/About.astro';
-import Services from '../components/home/Services.astro';
+import TheConflict from '../components/home/TheConflict.astro';
 import Partners from '../components/home/Partners.astro';
-import WhyUs from '../components/home/WhyUs.astro';
 // Nosotros
 import MissionVision from '../components/nosotros/MissionVision.astro';
 import Values from '../components/nosotros/Values.astro';
 import Team from '../components/nosotros/Team.astro';
 // Soluciones
-import SolutionsList from '../components/soluciones/SolutionsList.astro';
+import SolutionsCarousel from '../components/soluciones/SolutionsCarousel.astro';
 // Beneficios
 import BenefitsGrid from '../components/beneficios/BenefitsGrid.astro';
 import Stats from '../components/beneficios/Stats.astro';
@@ -24,32 +22,55 @@ import Stats from '../components/beneficios/Stats.astro';
     description="Luatec Solutions ofrece servicios integrales de conectividad, ciberseguridad y consultoría tecnológica para potenciar tu empresa. Expertos en TI."
 >
     <Header />
-    <main>
-        <Hero />
-        <About />
-        <Services />
-        <Partners />
-        <WhyUs />
-    
-
-        <!-- Nosotros Section -->
-        <div id="nosotros" class="pt-20">
-            <MissionVision />
-            <Values />
-            <Team />
+    <main class="w-full relative">
+        <div class="h-screen w-full snap-start flex items-center justify-center relative">
+            <Hero />
         </div>
-
-        <!-- Soluciones Section -->
-        <div id="soluciones" class="pt-20">
-            <SolutionsList />
+        <div class="h-screen w-full snap-start flex items-center justify-center relative">
+            <TheConflict />
         </div>
-
-
-        <!-- Beneficios Section -->
-        <div id="beneficios" class="pt-20">
-            <BenefitsGrid />
+        <div class="h-screen w-full snap-start flex items-center justify-center relative">
             <Stats />
         </div>
+        <div id="soluciones" class="w-full relative">
+            <SolutionsCarousel />
+        </div>
+        <div id="beneficios" class="h-screen w-full snap-start flex items-center justify-center relative">
+            <BenefitsGrid />
+        </div>
+
+        
+        <!-- Propósito y Equipo -->
+        <div id="nosotros" class="h-screen w-full snap-start flex items-center justify-center relative">
+            <MissionVision />
+        </div>
+        <div class="h-screen w-full snap-start flex items-center justify-center relative">
+            <Values />
+        </div>
+        <div class="h-screen w-full snap-start flex flex-col relative">
+            <div class="flex-grow flex items-center justify-center">
+                <Team />
+            </div>
+            <div class="w-full">
+                <Partners />
+            </div>
+        </div>
+
+        <div class="min-h-screen w-full snap-start flex flex-col justify-end">
+            <Footer />
+        </div>
     </main>
-    <Footer />
 </Layout>
+
+<style>
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+</style>

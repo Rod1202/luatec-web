@@ -1,30 +1,84 @@
-<section class="py-24 bg-transparent">
+<section class="py-24 bg-transparent" id="impacto-numeros">
     <div class="container mx-auto px-6">
         <div class="text-center mb-20">
-            <h2 class="text-3xl md:text-5xl font-extrabold text-white">Impacto medible en números</h2>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white">No solo implementamos soluciones; garantizamos resultados.</h2>
             <div class="w-24 h-1.5 bg-primary mx-auto mt-6 rounded-full"></div>
         </div>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 max-w-6xl mx-auto">
             <div class="text-center group">
-                <div class="text-5xl md:text-6xl font-extrabold text-primary mb-4 glow-blue group-hover:scale-110 transition-transform">40%</div>
-                <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Reducción de Costos</p>
-                <p class="text-sm text-slate-500 px-4">En infraestructura operativa anual para nuestros clientes.</p>
+                <div class="text-5xl md:text-6xl font-extrabold text-white mb-4 glow-blue group-hover:scale-110 transition-transform flex justify-center items-center">
+                    <span class="count-up" data-target="40">0</span>%
+                </div>
+                <p class="text-xs font-bold uppercase tracking-widest text-slate-300 mb-2">Optimización de Costos</p>
+                <p class="text-sm text-slate-300 px-4">Reducimos el gasto operativo anual mediante arquitecturas eficientes.</p>
             </div>
             <div class="text-center group">
-                <div class="text-5xl md:text-6xl font-extrabold text-primary mb-4 glow-blue group-hover:scale-110 transition-transform">99.95%</div>
-                <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Tiempo de Actividad</p>
-                <p class="text-sm text-slate-500 px-4">Garantía de disponibilidad en sistemas críticos gestionados.</p>
+                <div class="text-5xl md:text-6xl font-extrabold text-white mb-4 glow-blue group-hover:scale-110 transition-transform flex justify-center items-center">
+                    <span class="count-up" data-target="100">0</span>%
+                </div>
+                <p class="text-xs font-bold uppercase tracking-widest text-slate-300 mb-2">Disponibilidad</p>
+                <p class="text-sm text-slate-300 px-4">Garantía total de tiempo de actividad en tus sistemas críticos.</p>
             </div>
             <div class="text-center group">
-                <div class="text-5xl md:text-6xl font-extrabold text-primary mb-4 glow-blue group-hover:scale-110 transition-transform">+200</div>
-                <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Proyectos Exitosos</p>
-                <p class="text-sm text-slate-500 px-4">Implementaciones de alta complejidad técnica finalizadas.</p>
+                <div class="text-5xl md:text-6xl font-extrabold text-white mb-4 glow-blue group-hover:scale-110 transition-transform flex justify-center items-center">
+                    +<span class="count-up" data-target="200">0</span>
+                </div>
+                <p class="text-xs font-bold uppercase tracking-widest text-slate-300 mb-2">Casos de Éxito</p>
+                <p class="text-sm text-slate-300 px-4">Soluciones de alta complejidad técnica entregadas con excelencia.</p>
             </div>
             <div class="text-center group">
-                <div class="text-5xl md:text-6xl font-extrabold text-primary mb-4 glow-blue group-hover:scale-110 transition-transform">0</div>
-                <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Brechas de Seguridad</p>
-                <p class="text-sm text-slate-500 px-4">En entornos protegidos bajo nuestros protocolos avanzados.</p>
+                <div class="text-5xl md:text-6xl font-extrabold text-white mb-4 glow-blue group-hover:scale-110 transition-transform flex justify-center items-center">
+                    <span class="count-up" data-target="24">0</span>/7
+                </div>
+                <p class="text-xs font-bold uppercase tracking-widest text-slate-300 mb-2">Vigilancia Preventiva</p>
+                <p class="text-sm text-slate-300 px-4">Monitoreo constante bajo los estándares de seguridad más estrictos del mercado.</p>
             </div>
         </div>
     </div>
+    
+    <!-- Wave Divider -->
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-[calc(100%+1.3px)] h-[60px] fill-primary/10">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+        </svg>
+    </div>
+
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.count-up');
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const speed = 200; // The lower the slower
+
+                        const updateCount = () => {
+                            const count = +counter.innerText.replace(/\D/g, ''); // Simple parse, might need adjustment based on content
+                            const inc = target / speed;
+
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count + inc);
+                                // Re-append suffix if needed, this logic is basic. 
+                                // Ideally separating number and suffix in HTML is better.
+                                setTimeout(updateCount, 20);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCount();
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.getElementById('impacto-numeros');
+        if(statsSection) observer.observe(statsSection);
+    </script>
 </section>

@@ -17,7 +17,7 @@ const {
 } = Astro.props;
 ---
 <!doctype html>
-<html lang="es">
+<html lang="es" class="scroll-smooth no-scrollbar">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,7 +60,7 @@ const {
                 alt="Background" 
                 class="w-full h-full object-cover object-center opacity-100 blur-sm"
             />
-            <div class="absolute inset-0 bg-black/40"></div> <!-- Added overlay for better text contrast -->
+            <!-- Removed black overlay as requested -->
         </div>
 		<slot />
         <script>

@@ -1,0 +1,341 @@
+---
+import { MdDone } from "react-icons/md";
+---
+
+<section class="py-24 overflow-hidden" id="solutions-carousel">
+    <div class="container mx-auto px-6 mb-12 relative z-10 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Nuestras Soluciones</h2>
+        <p class="text-slate-300 max-w-2xl mx-auto">Gestión integral de tecnología para potenciar su crecimiento.</p>
+    </div>
+
+    <!-- Carousel Container -->
+    <div class="carousel-container relative w-full flex items-center justify-center perspective-1000">
+        <div class="overflow-x-auto no-scrollbar py-12 w-full" id="cards-wrapper">
+            <div id="cards-track" class="flex gap-6 px-[7.5vw] md:px-[calc(50%-300px)] lg:px-[calc(50%-350px)] min-w-full">
+            
+            <!-- 1. Cloud e Infraestructura -->
+            <div class="card-item min-w-[85vw] md:min-w-[600px] lg:min-w-[700px] snap-center bg-slate-950/80 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden group will-change-transform transform-gpu shadow-2xl">
+                <div class="absolute -right-4 -bottom-10 text-[12rem] font-bold text-white/5 select-none pointer-events-none z-0 leading-none">01</div>
+                
+                <div class="relative z-10 grid lg:grid-cols-12 gap-8 h-full">
+                    <div class="lg:col-span-12 flex flex-col h-full">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-14 h-14 bg-gradient-to-br from-primary to-blue-600 rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-primary/30">
+                                <span class="material-symbols-outlined text-white text-3xl">cloud_done</span>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl md:text-3xl font-bold text-white leading-tight">Cloud e Infraestructura</h2>
+                                <p class="text-xs font-bold uppercase tracking-widest text-primary mt-1">Escalabilidad Infinita</p>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-8 font-medium">
+                            Diseñamos y operamos arquitecturas de nube híbrida y multicloud que garantizan escalabilidad robusta y alta disponibilidad para sus operaciones críticas.
+                        </p>
+
+                        <ul class="grid sm:grid-cols-2 gap-y-3 gap-x-6 mb-8">
+                            <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                <span class="text-primary text-xl"><MdDone /></span>
+                                <span>Migración a AWS/Azure</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                <span class="text-primary text-xl"><MdDone /></span>
+                                <span>Gestión de Kubernetes</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                <span class="text-primary text-xl"><MdDone /></span>
+                                <span>Disaster Recovery</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                <span class="text-primary text-xl"><MdDone /></span>
+                                <span>FinOps</span>
+                            </li>
+                        </ul>
+
+                         <div class="mt-auto pt-6 border-t border-white/10 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] text-slate-400 border border-white/5">AWS</span>
+                            <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] text-slate-400 border border-white/5">Azure</span>
+                            <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] text-slate-400 border border-white/5">Terraform</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Ciberseguridad Avanzada -->
+            <div class="card-item min-w-[85vw] md:min-w-[600px] lg:min-w-[700px] snap-center bg-slate-950/80 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden group will-change-transform transform-gpu shadow-2xl">
+                <div class="absolute -right-4 -bottom-10 text-[12rem] font-bold text-white/5 select-none pointer-events-none z-0 leading-none">02</div>
+                
+                <div class="relative z-10 grid lg:grid-cols-12 gap-8 h-full">
+                    <div class="lg:col-span-12 flex flex-col h-full">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-14 h-14 bg-gradient-to-br from-primary to-blue-600 rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-primary/30">
+                                <span class="material-symbols-outlined text-white text-3xl">shield_lock</span>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl md:text-3xl font-bold text-white leading-tight">Ciberseguridad Avanzada</h2>
+                                <p class="text-xs font-bold uppercase tracking-widest text-primary mt-1">Protección 360°</p>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-8 font-medium">
+                            Implementamos perímetros de seguridad inteligentes y respuesta ante incidentes para blindar su activo más valioso: la información.
+                        </p>
+
+                        <ul class="grid sm:grid-cols-2 gap-y-3 gap-x-6 mb-8">
+                            <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                <span class="text-primary text-xl"><MdDone /></span>
+                                <span>Pentesting & Auditoría</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                <span class="text-primary text-xl"><MdDone /></span>
+                                <span>Firewalls Next-Gen</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                <span class="text-primary text-xl"><MdDone /></span>
+                                <span>EDR / XDR</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                <span class="text-primary text-xl"><MdDone /></span>
+                                <span>ISO 27001</span>
+                            </li>
+                        </ul>
+
+                        <div class="mt-auto pt-6 border-t border-white/10 flex flex-wrap gap-2">
+                             <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] text-slate-400 border border-white/5">Fortinet</span>
+                             <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] text-slate-400 border border-white/5">Cisco</span>
+                             <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] text-slate-400 border border-white/5">CrowdStrike</span>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Soporte y Gestión TI -->
+            <div class="card-item min-w-[85vw] md:min-w-[600px] lg:min-w-[700px] snap-center bg-slate-950/80 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden group will-change-transform transform-gpu shadow-2xl">
+                <div class="absolute -right-4 -bottom-10 text-[12rem] font-bold text-white/5 select-none pointer-events-none z-0 leading-none">03</div>
+                
+                <div class="relative z-10 grid lg:grid-cols-12 gap-8 h-full">
+                    <div class="lg:col-span-12 flex flex-col h-full">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-14 h-14 bg-gradient-to-br from-primary to-blue-600 rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-primary/30">
+                                <span class="material-symbols-outlined text-white text-3xl">support_agent</span>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl md:text-3xl font-bold text-white leading-tight">Soporte y Gestión TI</h2>
+                                <p class="text-xs font-bold uppercase tracking-widest text-primary mt-1">Continuidad Operativa</p>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-8 font-medium">
+                            Más que resolver problemas, los prevenimos. Soporte técnico proactivo y gestión de infraestructura para que su negocio nunca se detenga.
+                        </p>
+
+                        <ul class="grid sm:grid-cols-2 gap-y-3 gap-x-6 mb-8">
+                            <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                <span class="text-primary text-xl"><MdDone /></span>
+                                <span>Help Desk 24/7/365</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                <span class="text-primary text-xl"><MdDone /></span>
+                                <span>Monitoreo Activo</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                <span class="text-primary text-xl"><MdDone /></span>
+                                <span>Gestión de Activos</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                <span class="text-primary text-xl"><MdDone /></span>
+                                <span>Mantenimiento Preventivo</span>
+                            </li>
+                        </ul>
+
+                        <div class="mt-auto pt-6 border-t border-white/10 flex flex-wrap gap-2">
+                             <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] text-slate-400 border border-white/5">SLA < 15min</span>
+                             <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] text-slate-400 border border-white/5">Resolución 92%</span>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Consultoría Estratégica -->
+            <div class="card-item min-w-[85vw] md:min-w-[600px] lg:min-w-[700px] snap-center bg-slate-950/80 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden group will-change-transform transform-gpu shadow-2xl">
+                <div class="absolute -right-4 -bottom-10 text-[12rem] font-bold text-white/5 select-none pointer-events-none z-0 leading-none">04</div>
+                
+                <div class="relative z-10 grid lg:grid-cols-12 gap-8 h-full">
+                    <div class="lg:col-span-12 flex flex-col h-full">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-14 h-14 bg-gradient-to-br from-primary to-blue-600 rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-primary/30">
+                                <span class="material-symbols-outlined text-white text-3xl">analytics</span>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl md:text-3xl font-bold text-white leading-tight">Consultoría Estratégica</h2>
+                                <p class="text-xs font-bold uppercase tracking-widest text-primary mt-1">Transformación Digital</p>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-8 font-medium">
+                            Alineamos la tecnología con sus objetivos de negocio. Desde la planificación estratégica hasta la ejecución de proyectos complejos.
+                        </p>
+
+                        <ul class="grid sm:grid-cols-2 gap-y-3 gap-x-6 mb-8">
+                            <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                <span class="text-primary text-xl"><MdDone /></span>
+                                <span>Auditoría IT</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                <span class="text-primary text-xl"><MdDone /></span>
+                                <span>Roadmap Digital</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                <span class="text-primary text-xl"><MdDone /></span>
+                                <span>Virtualización</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300 text-sm">
+                                <span class="text-primary text-xl"><MdDone /></span>
+                                <span>Gestión de Proveedores</span>
+                            </li>
+                        </ul>
+
+                         <div class="mt-auto pt-6 border-t border-white/10 flex flex-wrap gap-2">
+                             <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] text-slate-400 border border-white/5">Dell</span>
+                             <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] text-slate-400 border border-white/5">VMware</span>
+                             <span class="px-3 py-1 rounded-full bg-white/5 text-[10px] text-slate-400 border border-white/5">HPE</span>
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .perspective-1000 {
+        perspective: 1000px;
+    }
+</style>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const container = document.getElementById('cards-wrapper');
+    const track = document.getElementById('cards-track');
+    const cards = document.querySelectorAll('.card-item');
+    const main = document.querySelector("main"); 
+
+    if (container && track && cards.length > 0) {
+        
+        // Optimize rendering on TRACK (Viewport is static)
+        gsap.set(track, { x: 0, willChange: "transform", force3D: true });
+        
+        // Calculate exact distance to center the LAST card
+        const getScrollDistance = () => {
+            const lastCard = cards[cards.length - 1];
+            if (!lastCard) return 0;
+
+            const lastCardCenter = lastCard.offsetLeft + (lastCard.offsetWidth / 2);
+            const viewportCenter = container.clientWidth / 2;
+            
+            return lastCardCenter - viewportCenter;
+        };
+
+        // --- 1. Track Animation (Transform X) ---
+        gsap.to(track, {
+            x: () => -getScrollDistance(), 
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#solutions-carousel",
+                start: "top top",
+                end: () => "+=" + getScrollDistance(),
+                scrub: 1,
+                pin: true,
+                invalidateOnRefresh: true,
+                anticipatePin: 1,
+                fastScrollEnd: false, 
+                                
+                onEnter: () => { 
+                    if(main) main.style.scrollSnapType = "none";
+                    document.documentElement.style.scrollSnapType = "none";
+                },
+                onLeave: () => { 
+                    if(main) main.style.scrollSnapType = "";
+                    document.documentElement.style.scrollSnapType = "";
+                },
+                onEnterBack: () => { 
+                    if(main) main.style.scrollSnapType = "none";
+                    document.documentElement.style.scrollSnapType = "none";
+                },
+                onLeaveBack: () => { 
+                    if(main) main.style.scrollSnapType = "";
+                    document.documentElement.style.scrollSnapType = "";
+                }
+            }
+        });
+
+        // --- 2. Focus Logic ---
+        const setters = Array.from(cards).map(card => ({
+            scale: gsap.quickSetter(card, "scale"),
+            opacity: gsap.quickSetter(card, "opacity"),
+            filter: gsap.quickSetter(card, "filter"),
+            zIndex: gsap.quickSetter(card, "zIndex")
+        }));
+
+        const updateCards = () => {
+            const currentX = gsap.getProperty(track, "x") || 0; // Read from TRACK
+            const scrollPos = -currentX; 
+            
+            const viewportWidth = container.clientWidth;
+            const center = scrollPos + viewportWidth / 2;
+            const maxDistance = viewportWidth / 2;
+            
+            let closestIndex = 0;
+            let minDiff = Infinity;
+            
+            cards.forEach((card, i) => {
+                const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+                const diff = Math.abs(center - cardCenter);
+                if (diff < minDiff) {
+                    minDiff = diff;
+                    closestIndex = i;
+                }
+            });
+
+            cards.forEach((card, i) => {
+                const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+                const distance = Math.abs(center - cardCenter);
+                const progress = Math.min(distance / maxDistance, 1);
+
+                const isFocused = (i === closestIndex);
+                
+                const scale = 1 - (progress * 0.15); 
+                const opacity = 1 - (progress * 0.7);
+                const blur = progress * 5;
+
+                if (isFocused) {
+                    setters[i].scale(1);
+                    setters[i].opacity(1);
+                    setters[i].filter('blur(0px)');
+                    setters[i].zIndex(10);
+                } else {
+                    setters[i].scale(scale);
+                    setters[i].opacity(opacity);
+                    setters[i].filter(`blur(${blur}px)`);
+                    setters[i].zIndex(1);
+                }
+            });
+        };
+
+        gsap.ticker.add(updateCards);
+        updateCards();
+    }
+</script>

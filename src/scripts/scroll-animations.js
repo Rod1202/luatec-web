@@ -14,8 +14,17 @@ export function initScrollAnimations() {
         });
     }, observerOptions);
 
-    // Target all direct children of main (sections) and other key elements
-    const elementsToAnimate = document.querySelectorAll('main > section, main > div, .service-card, .glass-card, .bg-white\\/5');
+    // Target specific content elements for granular animation
+    const elementsToAnimate = document.querySelectorAll(`
+        main h1, 
+        main h2, 
+        main h3, 
+        main p, 
+        main img, 
+        .glass-card, 
+        .service-card,
+        .benefit-card
+    `);
 
     elementsToAnimate.forEach((el) => {
         el.classList.add('animate-on-scroll');
