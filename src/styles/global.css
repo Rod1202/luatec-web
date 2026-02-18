@@ -8,7 +8,7 @@
 @theme {
     --color-primary: #053D8A;
     --color-background-light: #ffffff;
-    --color-background-dark: #0a0a0b;
+    --color-background-dark: #000000;
 
     --font-display: "Inter", sans-serif;
 
@@ -94,18 +94,6 @@
         border-radius: 10px;
     }
 
-    /* Hide scrollbar for Chrome, Safari and Opera */
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .no-scrollbar {
-        -ms-overflow-style: none;
-        /* IE and Edge */
-        scrollbar-width: none;
-        /* Firefox */
-    }
 }
 
 @theme {
@@ -118,32 +106,17 @@
     --radius-sidebar: 2.5rem;
 }
 
-/* Scroll Snap Smoothness */
 html {
-    background-color: #0a0a0b;
+    background-color: #000000;
     /* Base fallback */
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
 }
 
 body {
     background-color: transparent;
     margin: 0;
     padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-snap-type: y proximity;
-    scroll-padding-top: 0;
-    overflow-y: scroll;
-}
-
-@media (min-width: 768px) {
-    html {
-        scroll-snap-type: y mandatory;
-    }
 }
 
 /* Scroll Animation Utilities */

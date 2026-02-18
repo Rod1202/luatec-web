@@ -10,32 +10,31 @@
                 que convierte tu <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">visión</span> en resultados.
             </h1>
             <p class="text-lg md:text-xl text-slate-100 mb-12 max-w-2xl leading-relaxed">
-                Diseñamos y operamos ecosistemas digitales de alto rendimiento. Desde la nube hasta la ciberseguridad, aseguramos que tu tecnología nunca sea un límite, sino tu mayor ventaja competitiva.
+                Diseñamos ecosistemas digitales de alto rendimiento para que tu tecnología sea tu mayor ventaja competitiva.
             </p>
             
             <!-- Registration Form -->
             <div class="w-full max-w-xl">
                  <form action="/formulario" method="GET" class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                    <div class="relative flex flex-col md:flex-row items-center bg-[#053D8A]/40 backdrop-blur-xl border border-white/10 rounded-2xl p-2 gap-2">
-                        <div class="relative flex-grow w-full md:w-auto flex items-center pl-4">
-                            <span class="material-symbols-outlined text-blue-200 mr-3">mail</span>
+                    <div class="relative flex flex-col md:flex-row items-center bg-gradient-to-br from-[#0c0c0c] to-[#1a1a1a] border border-white/10 rounded-2xl p-1.5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300 group-hover:border-white/20">
+                        <div class="relative flex-grow w-full md:w-auto flex items-center pl-4 group/input">
+                            <span class="material-symbols-outlined text-blue-400/70 mr-3 transition-colors group-focus-within/input:text-blue-400">mail</span>
                             <input 
                                 type="email" 
                                 name="email"
                                 placeholder="Tu correo electrónico" 
-                                class="w-full bg-transparent border-none text-white placeholder:text-blue-200/70 focus:ring-0 py-3 text-sm md:text-base outline-none"
+                                class="w-full bg-transparent border-none text-white placeholder:text-slate-500 focus:ring-0 py-3 text-sm md:text-base outline-none font-medium"
                                 required
                             />
                         </div>
-                        <button type="submit" class="w-full md:w-auto bg-[#053D8A] hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 whitespace-nowrap shadow-lg shadow-black/20">
+                        <button type="submit" class="w-full md:w-auto bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-xl transition-all flex items-center justify-center gap-2 whitespace-nowrap shadow-xl active:scale-95">
                             Solicitar Información
                             <span class="material-symbols-outlined text-sm">arrow_forward</span>
                         </button>
                         <a href="/formulario" data-astro-prefetch class="hidden" aria-hidden="true">Prefetch</a>
                     </div>
                 </form>
-                <p class="mt-4 text-xs text-blue-200/80 ml-2">
+                <p class="mt-4 text-xs text-slate-500 ml-2 font-medium">
                     Recibe una asesoría técnica personalizada en menos de 24 horas.
                 </p>
             </div>

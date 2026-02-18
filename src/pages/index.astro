@@ -23,54 +23,42 @@ import Stats from '../components/beneficios/Stats.astro';
 >
     <Header />
     <main class="w-full relative">
-        <div class="min-h-[100svh] md:h-screen w-full snap-none md:snap-start flex items-center justify-center relative">
+        <!-- Hero: Main impact fold -->
+        <div class="min-h-screen w-full flex items-center justify-center relative">
             <Hero />
         </div>
-        <div class="min-h-[100svh] md:h-screen w-full snap-none md:snap-start flex items-start md:items-center pt-24 md:pt-0 justify-center relative">
-            <TheConflict />
-        </div>
-        <div class="min-h-[100svh] md:h-screen w-full snap-none md:snap-start flex items-start md:items-center pt-24 md:pt-0 justify-center relative overflow-y-auto md:overflow-visible">
+
+        <!-- Section Divider -->
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent"></div>
+
+        <!-- Stats Section: Ultra Tight -->
+        <div class="py-6 md:py-8 w-full flex items-center justify-center relative overflow-hidden">
             <Stats />
         </div>
-        <div id="soluciones" class="w-full relative">
+
+
+        <!-- Team Section: Ultra Tight -->
+        <div class="py-6 md:py-8 w-full flex items-center justify-center relative px-4 md:px-0">
+            <Team />
+        </div>
+
+        <!-- Section Divider -->
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent"></div>
+
+        <!-- Solutions Carousel: Ultra Tight -->
+        <div id="soluciones" class="w-full relative py-6 md:py-10">
             <SolutionsCarousel />
         </div>
-        <div id="beneficios" class="min-h-[100svh] md:h-screen w-full snap-none md:snap-start flex items-start md:items-center pt-24 md:pt-0 justify-center relative overflow-y-auto md:overflow-visible">
-            <BenefitsGrid />
+
+
+        <!-- Partners Section: Ultra Tight -->
+        <div class="w-full relative pb-12">
+            <Partners />
         </div>
 
-        
-        <!-- Propósito y Equipo -->
-        <div id="nosotros" class="min-h-[100svh] md:h-screen w-full snap-none md:snap-start flex items-start md:items-center pt-24 md:pt-0 justify-center relative">
-            <MissionVision />
-        </div>
-        <div class="min-h-[100svh] md:h-screen w-full snap-none md:snap-start flex items-start md:items-center pt-24 md:pt-0 justify-center relative overflow-y-auto md:overflow-visible">
-            <Values />
-        </div>
-        <div class="min-h-[100svh] md:h-screen w-full snap-none md:snap-start flex flex-col relative overflow-y-auto md:overflow-visible">
-            <div class="flex-grow flex items-start md:items-center pt-24 md:pt-0 justify-center">
-                <Team />
-            </div>
-            <div class="w-full">
-                <Partners />
-            </div>
-        </div>
-
-        <div class="min-h-[100svh] md:min-h-screen w-full snap-none md:snap-start flex flex-col justify-end overflow-y-auto md:overflow-visible">
+        <!-- Footer Section -->
+        <div class="w-full relative bg-[#053D8A]">
             <Footer />
         </div>
     </main>
 </Layout>
-
-<style>
-/* Hide scrollbar for Chrome, Safari and Opera */
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.no-scrollbar {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-</style>

@@ -1,7 +1,6 @@
 ---
 import { SEO } from "astro-seo";
 import { Image } from "astro:assets";
-import backgroundImage from "../assets/background.avif";
 import "../styles/global.css";
 
 interface Props {
@@ -19,7 +18,7 @@ const {
 } = Astro.props;
 ---
 <!doctype html>
-<html lang="es" class="scroll-smooth no-scrollbar">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -56,21 +55,7 @@ const {
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 	</head>
 	<body class="font-display text-slate-900 dark:text-slate-100 transition-colors duration-300">
-        <div class="fixed inset-0 -z-50 w-full h-full pointer-events-none">
-            <Image 
-                src={backgroundImage} 
-                alt="Background" 
-                width={1920}
-                height={1080}
-                class="w-full h-full object-cover object-center opacity-100 blur-sm"
-                loading="eager"
-            />
-        </div>
 		<slot />
-        <script>
-            import { initScrollAnimations } from "../scripts/scroll-animations.js";
-            document.addEventListener("DOMContentLoaded", initScrollAnimations);
-        </script>
 	</body>
 </html>
 
