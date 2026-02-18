@@ -9,6 +9,7 @@ import Partners from '../components/home/Partners.astro';
 import MissionVision from '../components/nosotros/MissionVision.astro';
 import Values from '../components/nosotros/Values.astro';
 import Team from '../components/nosotros/Team.astro';
+import TeamMovil from '../components/nosotros/TeamMovil.astro';
 // Soluciones
 import SolutionsCarousel from '../components/soluciones/SolutionsCarousel.astro';
 import CTA from '../components/nosotros/CTA.astro';
@@ -23,7 +24,7 @@ import Stats from '../components/beneficios/Stats.astro';
     description="Luatec Solutions ofrece servicios integrales de conectividad, ciberseguridad y consultoría tecnológica para potenciar tu empresa. Expertos en TI."
 >
     <Header />
-    <main class="w-full relative">
+    <main class="w-full relative px-4 md:px-0">
         <!-- Hero: Main impact fold -->
         <div class="min-h-screen w-full flex items-center justify-center relative">
             <Hero />
@@ -32,15 +33,22 @@ import Stats from '../components/beneficios/Stats.astro';
         <!-- Section Divider -->
         <div class="w-full h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent"></div>
 
-        <!-- Stats Section: Ultra Tight -->
-        <div class="py-6 md:py-8 w-full flex items-center justify-center relative overflow-hidden">
-            <Stats />
+        <!-- Desktop Stats & Team -->
+        <div class="hidden md:block">
+            <!-- Stats Section: Ultra Tight -->
+            <div class="py-6 md:py-8 w-full flex items-center justify-center relative overflow-hidden">
+                <Stats />
+            </div>
+
+            <!-- Team Section: Ultra Tight -->
+            <div class="py-6 md:py-8 w-full flex items-center justify-center relative px-4 md:px-0">
+                <Team />
+            </div>
         </div>
 
-
-        <!-- Team Section: Ultra Tight -->
-        <div class="py-6 md:py-8 w-full flex items-center justify-center relative px-4 md:px-0">
-            <Team />
+        <!-- Mobile Team Section -->
+        <div class="block md:hidden">
+            <TeamMovil />
         </div>
 
         <!-- Section Divider -->

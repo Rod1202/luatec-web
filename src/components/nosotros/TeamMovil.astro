@@ -1,0 +1,173 @@
+---
+---
+
+<section class="py-24 bg-transparent overflow-hidden" id="equipo-seccion">
+    <div class="container mx-auto px-4 md:px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+            <div class="team-content transition-all duration-1000 ease-out">
+                <span class="text-blue-500 font-bold tracking-[0.2em] uppercase text-xs">Nuestro Equipo</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold mt-4 mb-8 text-white leading-tight tracking-tight">
+                    Expertos dedicados a su tranquilidad
+                </h2>
+                <p class="text-lg text-slate-400 mb-8 leading-relaxed max-w-lg">
+                    Contamos con un equipo multidisciplinario de ingenieros y consultores certificados por los principales fabricantes de tecnología a nivel mundial. Nuestra pasión es resolver problemas complejos con soluciones simples, robustas y escalables.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 team-metrics">
+                <!-- Card 1 -->
+                <div class="metric-card group relative bg-gradient-to-br from-[#0c0c0c] to-[#1a1a1a] border border-white/10 p-10 rounded-[2.5rem] text-center shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                    <div class="relative z-10 transition-transform duration-300">
+                        <div class="text-5xl font-extrabold text-white mb-3 tracking-tighter group-hover:text-blue-400 transition-colors">
+                            <span class="count-up" data-target="40">40</span>%
+                        </div>
+                        <p class="text-[0.65rem] md:text-[0.75rem] font-bold text-slate-400 uppercase tracking-[0.2em] opacity-70 group-hover:opacity-100 transition-opacity">
+                            Optimización de Costos
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="metric-card group relative bg-gradient-to-br from-[#0c0c0c] to-[#1a1a1a] border border-white/10 p-10 rounded-[2.5rem] text-center shadow-2xl transition-all duration-500 hover:-translate-y-2" style="transition-delay: 100ms;">
+                    <div class="relative z-10 transition-transform duration-300">
+                        <div class="text-5xl font-extrabold text-white mb-3 tracking-tighter group-hover:text-blue-400 transition-colors">
+                            +<span class="count-up" data-target="200">200</span>
+                        </div>
+                        <p class="text-[0.65rem] md:text-[0.75rem] font-bold text-slate-400 uppercase tracking-[0.2em] opacity-70 group-hover:opacity-100 transition-opacity">
+                           Casos de Éxito
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="metric-card group relative bg-gradient-to-br from-[#0c0c0c] to-[#1a1a1a] border border-white/10 p-10 rounded-[2.5rem] text-center shadow-2xl transition-all duration-500 hover:-translate-y-2" style="transition-delay: 200ms;">
+                    <div class="relative z-10 transition-transform duration-300">
+                        <div class="text-5xl font-extrabold text-white mb-3 tracking-tighter group-hover:text-blue-400 transition-colors">
+                            24/7
+                        </div>
+                        <p class="text-[0.65rem] md:text-[0.75rem] font-bold text-slate-400 uppercase tracking-[0.2em] opacity-70 group-hover:opacity-100 transition-opacity">
+                            Disponibilidad
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="metric-card group relative bg-gradient-to-br from-[#0c0c0c] to-[#1a1a1a] border border-white/10 p-10 rounded-[2.5rem] text-center shadow-2xl transition-all duration-500 hover:-translate-y-2" style="transition-delay: 300ms;">
+                    <div class="relative z-10 transition-transform duration-300">
+                        <div class="text-5xl font-extrabold text-white mb-3 tracking-tighter group-hover:text-blue-400 transition-colors">
+                            100%
+                        </div>
+                        <p class="text-[0.65rem] md:text-[0.75rem] font-bold text-slate-400 uppercase tracking-[0.2em] opacity-70 group-hover:opacity-100 transition-opacity">
+                            Satisfacción
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function initializeTeamAnimations() {
+        const section = document.getElementById('equipo-seccion');
+        if (!section || section.dataset.observed) return;
+        section.dataset.observed = "true";
+
+        const content = section.querySelector('.team-content');
+        const cards = section.querySelectorAll('.metric-card');
+
+        // Initial state
+        if (content) {
+            content.style.opacity = '0';
+            content.style.transform = 'translateY(20px)';
+        }
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+        });
+
+        const observerOptions = {
+            threshold: 0.05
+        };
+
+        const teamObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (content) {
+                        content.style.opacity = '1';
+                        content.style.transform = 'translateY(0)';
+                    }
+                    
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            (card as HTMLElement).style.opacity = '1';
+                            (card as HTMLElement).style.transform = 'translateY(0)';
+                            const counter = card.querySelector('.count-up');
+                            if (counter) animateCounter(counter as HTMLElement);
+                        }, index * 100);
+                    });
+                    
+                    teamObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        teamObserver.observe(section);
+    }
+
+    function animateCounter(el: HTMLElement) {
+        if (el.dataset.animated) return;
+        el.dataset.animated = "true";
+
+        const targetValue = el.getAttribute('data-target');
+        if (!targetValue) return;
+        const target = parseInt(targetValue);
+        const duration = 1500;
+        const startTime = performance.now();
+
+        function update(currentTime: number) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Ease out function
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(target * easeOut);
+
+            el.textContent = current.toString();
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                el.textContent = target.toString();
+            }
+        }
+
+        requestAnimationFrame(update);
+    }
+
+    // Run on load and after swaps if using view transitions
+    initializeTeamAnimations();
+    document.addEventListener('astro:after-swap', initializeTeamAnimations);
+</script>
+
+<style>
+    .metric-card {
+        box-shadow: 
+            0 20px 50px rgba(0,0,0,0.5), 
+            inset 0 1px 1px rgba(255,255,255,0.05);
+    }
+
+    .metric-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+    }
+    
+    .metric-card:hover::after {
+        opacity: 1;
+    }
+</style>

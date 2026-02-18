@@ -19,21 +19,22 @@
 
                 <div class="max-w-xl mx-auto">
                     <form class="w-full group">
-                        <div class="relative flex flex-col md:flex-row items-center bg-black/40 border border-white/10 rounded-2xl p-1.5 shadow-2xl transition-all duration-300 group-hover:border-white/20">
-                            <div class="relative flex-grow w-full md:w-auto flex items-center pl-4">
+                        <div class="relative flex flex-col md:flex-row items-center bg-transparent md:bg-black/40 md:border md:border-white/10 rounded-2xl md:p-1.5 md:shadow-2xl transition-all duration-300 md:group-hover:border-white/20 gap-4 md:gap-0">
+                            <!-- Input container: Styled on mobile -->
+                            <div class="relative flex-grow w-full md:w-auto flex items-center pl-4 bg-gradient-to-br from-[#0c0c0c] to-[#1a1a1a] border border-white/10 rounded-xl md:rounded-none md:bg-none md:border-none shadow-2xl md:shadow-none">
                                 <span class="material-symbols-outlined text-blue-400/70 mr-3 transition-colors group-focus-within:text-blue-400">mail</span>
                                 <input
                                     type="email"
                                     name="email"
                                     placeholder="Tu correo electrónico"
-                                    class="w-full bg-transparent border-none text-white placeholder:text-slate-600 focus:ring-0 py-3 text-sm md:text-base outline-none font-medium"
+                                    class="w-full bg-transparent border-none text-white placeholder:text-slate-600 focus:ring-0 py-4 md:py-3 text-sm md:text-base outline-none font-medium"
                                     required
                                 />
                             </div>
 
                             <button
                                 type="submit"
-                                class="w-full md:w-auto bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap shadow-xl shadow-blue-900/10 active:scale-95 border border-white/10"
+                                class="w-full md:w-auto bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 md:py-3 px-8 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap shadow-xl shadow-blue-900/10 active:scale-95 border border-white/10 md:border-none"
                             >
                                 Solicitar Información
                                 <span class="material-symbols-outlined text-sm">arrow_forward</span>
