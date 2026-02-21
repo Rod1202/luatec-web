@@ -2,17 +2,17 @@
 import { Icon } from 'astro-icon/components';
 ---
 
-<section class="carousel-section overflow-hidden bg-transparent" id="soluciones">
-  <div class="carousel-header container mx-auto px-6 text-center mb-12">
-    <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Nuestras Soluciones</h2>
-   
-  </div>
+<section class="carousel-section overflow-hidden bg-transparent py-16 md:py-24" id="soluciones">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Nuestras Soluciones</h2>
+    </div>
 
   <div class="carousel-wrapper relative overflow-hidden py-8">
     <div class="carousel-track flex transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform items-center" id="track">
 
       <!-- 1. Cloud e Infraestructura -->
-      <div class="card min-w-[320px] md:min-w-[500px] bg-[#0a1a2e]/90 backdrop-blur-xl border border-white/5 p-10 md:p-14 relative overflow-hidden cursor-pointer" data-index="0">
+      <div class="card bg-[#0a1a2e]/90 backdrop-blur-xl border border-white/5 p-10 md:p-14 relative overflow-hidden cursor-pointer" data-index="0">
         <div class="absolute -right-4 -bottom-10 text-[12rem] font-bold text-white/5 select-none pointer-events-none z-0 leading-none">01</div>
         
         <div class="relative z-10 flex flex-col h-full">
@@ -37,7 +37,7 @@ import { Icon } from 'astro-icon/components';
       </div>
 
       <!-- 2. Ciberseguridad Avanzada -->
-      <div class="card min-w-[320px] md:min-w-[500px] bg-[#0a1a2e]/90 backdrop-blur-xl border border-white/5 p-10 md:p-14 relative overflow-hidden cursor-pointer" data-index="1">
+      <div class="card bg-[#0a1a2e]/90 backdrop-blur-xl border border-white/5 p-10 md:p-14 relative overflow-hidden cursor-pointer" data-index="1">
         <div class="absolute -right-4 -bottom-10 text-[12rem] font-bold text-white/5 select-none pointer-events-none z-0 leading-none">02</div>
         
         <div class="relative z-10 flex flex-col h-full">
@@ -62,7 +62,7 @@ import { Icon } from 'astro-icon/components';
       </div>
 
       <!-- 3. Soporte y Gestión TI -->
-      <div class="card min-w-[320px] md:min-w-[500px] bg-[#0a1a2e]/90 backdrop-blur-xl border border-white/5 p-10 md:p-14 relative overflow-hidden cursor-pointer" data-index="2">
+      <div class="card bg-[#0a1a2e]/90 backdrop-blur-xl border border-white/5 p-10 md:p-14 relative overflow-hidden cursor-pointer" data-index="2">
         <div class="absolute -right-4 -bottom-10 text-[12rem] font-bold text-white/5 select-none pointer-events-none z-0 leading-none">03</div>
         
         <div class="relative z-10 flex flex-col h-full">
@@ -87,7 +87,7 @@ import { Icon } from 'astro-icon/components';
       </div>
 
       <!-- 4. Consultoría Estratégica -->
-      <div class="card min-w-[320px] md:min-w-[500px] bg-[#0a1a2e]/90 backdrop-blur-xl border border-white/5 p-10 md:p-14 relative overflow-hidden cursor-pointer" data-index="3">
+      <div class="card bg-[#0a1a2e]/90 backdrop-blur-xl border border-white/5 p-10 md:p-14 relative overflow-hidden cursor-pointer" data-index="3">
         <div class="absolute -right-4 -bottom-10 text-[12rem] font-bold text-white/5 select-none pointer-events-none z-0 leading-none">04</div>
         
         <div class="relative z-10 flex flex-col h-full">
@@ -136,7 +136,8 @@ import { Icon } from 'astro-icon/components';
   }
 
   .card {
-      min-width: var(--card-width);
+      flex: 0 0 620px;
+      max-width: 620px;
       background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 4rem;
@@ -193,7 +194,8 @@ import { Icon } from 'astro-icon/components';
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .card {
-        min-width: 300px;
+        flex: 0 0 340px;
+        max-width: 340px;
         padding: 2.5rem !important;
     }
     .carousel-track {
@@ -244,19 +246,25 @@ import { Icon } from 'astro-icon/components';
     if (!wrapper || !track || cards.length === 0) return;
 
     const card = cards[current];
-    const cardWidth = card.offsetWidth;
-    const wrapperWidth = wrapper.offsetWidth;
     
-    // Calculate the distance from the track's start to the card's center
-    const cardCenterInTrack = card.offsetLeft + cardWidth / 2;
+    // 1. Get real visual dimensions (includes scale/transforms)
+    const wrapperRect = wrapper.getBoundingClientRect();
+    const cardRect = card.getBoundingClientRect();
+
+    // 2. Read the current transform state safely
+    const style = window.getComputedStyle(track);
+    const matrix = new DOMMatrixReadOnly(style.transform);
+    const currentTranslateX = matrix.m41;
+
+    // 3. Calculate the visual center delta
+    const wrapperCenter = wrapperRect.left + (wrapperRect.width / 2);
+    const cardCenter = cardRect.left + (cardRect.width / 2);
     
-    // Center of the visible area
-    const wrapperCenter = wrapperWidth / 2;
-    
-    // The amount we need to shift the track to bring cardCenterInTrack to wrapperCenter
-    const targetTranslate = wrapperCenter - cardCenterInTrack;
-    
-    track.style.transform = `translateX(${targetTranslate}px)`;
+    // The visual offset needed to center the card center with the wrapper center
+    const offset = wrapperCenter - cardCenter;
+
+    // 4. Apply the new translation relative to the current one
+    track.style.transform = `translateX(${currentTranslateX + offset}px)`;
 
     updateCards();
   }

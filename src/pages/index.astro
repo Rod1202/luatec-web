@@ -24,48 +24,29 @@ import Stats from '../components/beneficios/Stats.astro';
     description="Luatec Solutions ofrece servicios integrales de conectividad, ciberseguridad y consultoría tecnológica para potenciar tu empresa. Expertos en TI."
 >
     <Header />
-    <main class="w-full relative px-4 md:px-0">
+    <main class="w-full relative">
         <!-- Hero: Main impact fold -->
-        <div class="min-h-screen w-full flex items-center justify-center relative">
-            <Hero />
-        </div>
-
-        <!-- Section Divider -->
-        <div class="w-full h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent"></div>
+        <Hero />
 
         <!-- Desktop Stats & Team -->
-        <div class="hidden md:block">
-            <!-- Stats Section: Ultra Tight -->
-            <div class="py-6 md:py-8 w-full flex items-center justify-center relative overflow-hidden">
-                <Stats />
-            </div>
-
-            <!-- Team Section: Ultra Tight -->
-            <div class="py-6 md:py-8 w-full flex items-center justify-center relative px-4 md:px-0">
-                <Team />
-            </div>
+        <div class="hidden md:contents">
+            <Stats />
+            <Team />
         </div>
 
         <!-- Mobile Team Section -->
-        <div class="block md:hidden">
+        <div class="contents md:hidden">
             <TeamMovil />
         </div>
 
-        <!-- Section Divider -->
-        <div class="w-full h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent"></div>
+        <!-- Solutions Carousel -->
+        <SolutionsCarousel />
 
-        <!-- Solutions Carousel: Ultra Tight -->
-        <div id="soluciones" class="w-full relative py-6 md:py-10">
-            <SolutionsCarousel />
-        </div>
-
-        <!-- CTA Section: Mid-page conversion -->
+        <!-- CTA Section -->
         <CTA />
 
-        <!-- Partners Section: Ultra Tight -->
-        <div class="w-full relative pb-12">
-            <Partners />
-        </div>
+        <!-- Partners Section -->
+        <Partners />
 
         <!-- Footer Section -->
         <div class="w-full relative bg-[#053D8A]">
