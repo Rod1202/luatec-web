@@ -3,6 +3,7 @@
 
 :root {
     color-scheme: light;
+    --header-height: 88px;
 }
 
 @theme {
@@ -111,12 +112,16 @@ html {
     /* Base fallback */
     margin: 0;
     padding: 0;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
     background-color: transparent;
     margin: 0;
     padding: 0;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Scroll Animation Utilities */

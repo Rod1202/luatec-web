@@ -14,7 +14,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
           alt="LUATEC" 
           width={200}
           height={80}
-          class="h-22 w-auto scale-110 origin-left translate-y-[1px] transition-transform duration-300" 
+          class="h-22 w-auto scale-110 origin-left translate-y-[1px] translate-x-[-16px] transition-transform duration-300" 
           loading="eager"
         />
       </a>
@@ -45,17 +45,12 @@ const currentPath = pathname.slice(1); // remove the first "/"
     if (currentScrollY > 50) {
       // SCROLLED STATE
       header?.classList.add('backdrop-blur-sm');
-      
-      // Use efficient toggle for scale to ensure no conflicts
-      logo?.classList.remove('scale-110', 'translate-y-[1px]');
-      logo?.classList.add('scale-110');
+      logo?.classList.remove('translate-y-[1px]');
       
     } else {
       // TOP STATE
       header?.classList.remove('backdrop-blur-sm');
-      
-      logo?.classList.remove('scale-90');
-      logo?.classList.add('scale-110', 'translate-y-[1px]');
+      logo?.classList.add('translate-y-[1px]');
     }
     
     // NOTE: Padding (py-2) remains fixed. No layout shifts.

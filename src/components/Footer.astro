@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import logoBase from "../assets/branding/logo_base.avif";
 ---
-<footer class="py-16 md:py-24 border-t border-white/10 bg-[#050505] relative overflow-hidden">
+<footer class="w-full py-16 md:py-24 border-t border-white/10 bg-[#050505] relative overflow-hidden">
     <!-- Subtle glow effect to separate from previous section -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
     
@@ -18,9 +18,9 @@ import logoBase from "../assets/branding/logo_base.avif";
                         <Image 
                             src={logoBase} 
                             alt="LUATEC" 
-                            width={180}
-                            height={60}
-                            class="h-21 w-auto" 
+                            width={200}
+                            height={80}
+                            class="h-22 w-auto scale-110 origin-left" 
                             loading="lazy"
                         />
                     </div>
