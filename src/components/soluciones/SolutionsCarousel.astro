@@ -1,130 +1,106 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import cloudImg from '../../assets/services_img/servicios_cloud.avif';
+import cyberImg from '../../assets/services_img/ciberseguridad.avif';
+import supportImg from '../../assets/services_img/soporte_mantenimiento.avif';
+import consultingImg from '../../assets/services_img/consultoria_infraestructura.avif';
+import hardwareImg from '../../assets/services_img/venta_hadware.avif';
+import rentalImg from '../../assets/services_img/alquiler_computo.avif';
+
+const solutions = [
+  {
+    title: 'Servicios Cloud e Infraestructura',
+    description: 'Gestión de redes, servidores y migración a plataformas de nube (AWS, Azure) para optimizar recursos y garantizar disponibilidad.',
+    image: cloudImg,
+    icon: 'cloud_done'
+  },
+  {
+    title: 'Ciberseguridad',
+    description: 'Protección de datos con firewalls, encriptación y auditorías de seguridad para prevenir riesgos y accesos no autorizados.',
+    image: cyberImg,
+    icon: 'shield_lock'
+  },
+  {
+    title: 'Soporte Técnico y Mantenimiento',
+    description: 'Help desk, diagnóstico y mantenimiento preventivo/correctivo para asegurar continuidad operativa.',
+    image: supportImg,
+    icon: 'support_agent'
+  },
+  {
+    title: 'Consultoría de TI e Infraestructura',
+    description: 'Asesoramiento en tecnología, estrategia de datos y dimensionamiento de Data Center, servidores y storage.',
+    image: consultingImg,
+    icon: 'analytics'
+  },
+  {
+    title: 'Venta de Hardware y Equipamiento',
+    description: 'Comercialización de equipos de computación, accesorios y refacciones según las necesidades del cliente.',
+    image: hardwareImg,
+    icon: 'devices'
+  },
+  {
+    title: 'Alquiler de equipos de cómputo',
+    description: 'Alquiler flexible de equipos de cómputo para proyectos o requerimientos temporales.',
+    image: rentalImg,
+    icon: 'computer'
+  }
+];
 ---
 
 <section class="carousel-section w-full overflow-hidden bg-transparent py-16 md:py-24" id="soluciones">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-12">
+    <div class="text-center mb-16">
       <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Nuestras Soluciones</h2>
     </div>
 
-  <div class="carousel-wrapper relative overflow-hidden py-8">
-    <div class="carousel-track flex transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform items-center" id="track">
+    <div class="carousel-wrapper relative overflow-hidden py-4">
+      <div class="carousel-track flex transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform items-center h-[560px] md:h-[600px]" id="track">
 
-      <!-- 1. Cloud e Infraestructura -->
-      <div class="card bg-[#0a1a2e]/90 backdrop-blur-xl border border-white/5 p-10 md:p-14 relative overflow-hidden cursor-pointer" data-index="0">
-        
-        <div class="relative z-10 flex flex-col h-full">
-          <div class="flex flex-col md:flex-row md:items-center gap-6 mb-8">
-            <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-blue-600/20">
-              <span class="material-symbols-outlined text-white text-3xl">cloud_done</span>
+        {solutions.map((solution, index) => (
+          <div class="card bg-[#161616] relative flex-shrink-0 cursor-pointer overflow-hidden rounded-[2rem] border border-white/5 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col" data-index={index}>
+            
+            <div class="h-[42%] w-full relative shrink-0">
+              <Image src={solution.image} alt={solution.title} class="w-full h-full object-cover" />
             </div>
-            <div class="flex flex-col">
-              <h3 class="text-2xl md:text-4xl font-bold text-white leading-tight">Cloud e Infraestructura</h3>
-              <p class="text-[0.7rem] md:text-[0.8rem] font-bold uppercase tracking-wider text-blue-500 mt-1">Escalabilidad Infinita</p>
+            
+            <div class="absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+              <div class="w-14 h-14 bg-[#1a1a1a] border-[4px] border-[#161616] rounded-full flex items-center justify-center shadow-lg">
+                <span class="material-symbols-outlined text-white text-[24px]">{solution.icon}</span>
+              </div>
             </div>
-          </div>
 
-          <p class="text-slate-300 text-sm md:text-lg leading-relaxed font-light mb-8 max-w-sm">
-            Diseñamos y operamos arquitecturas de nube híbrida y multicloud que garantizan escalabilidad robusta y alta disponibilidad.
-          </p>
-          
-          <a href="/formulario" class="card-link inline-flex items-center gap-2 text-sm font-semibold text-blue-500 no-underline transition-all hover:gap-3">
-            Solicitar Información <span class="material-symbols-outlined text-sm">arrow_forward</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- 2. Ciberseguridad Avanzada -->
-      <div class="card bg-[#0a1a2e]/90 backdrop-blur-xl border border-white/5 p-10 md:p-14 relative overflow-hidden cursor-pointer" data-index="1">
-        
-        <div class="relative z-10 flex flex-col h-full">
-          <div class="flex flex-col md:flex-row md:items-center gap-6 mb-8">
-            <div class="w-16 h-16 bg-[#1e4db7] rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-[#1e4db7]/20">
-              <span class="material-symbols-outlined text-white text-3xl">shield_lock</span>
-            </div>
-            <div class="flex flex-col">
-              <h3 class="text-2xl md:text-4xl font-bold text-white leading-tight">Ciberseguridad Avanzada</h3>
-              <p class="text-[0.7rem] md:text-[0.8rem] font-bold uppercase tracking-wider text-blue-400 mt-1">Protección 360°</p>
+            <div class="flex-1 w-full flex flex-col items-center justify-between px-6 pt-10 pb-6 text-center">
+              <div class="flex flex-col items-center gap-4">
+                <h3 class="text-[1.1rem] md:text-[1.15rem] font-bold text-white leading-tight">{solution.title}</h3>
+                <p class="text-[0.75rem] md:text-[0.8rem] text-gray-400 leading-relaxed px-1">{solution.description}</p>
+              </div>
+              
+              <a href="/formulario" class="mt-4 bg-white text-black px-6 py-2 rounded-full font-bold text-sm hover:bg-gray-200 transition-colors inline-block w-fit focus:outline-none focus:ring-2 focus:ring-white/50">
+                Saber más
+              </a>
             </div>
           </div>
+        ))}
 
-          <p class="text-slate-300 text-sm md:text-lg leading-relaxed font-light mb-8 max-w-sm">
-            Implementamos perímetros de seguridad inteligentes y respuesta ante incidentes para blindar su activo más valioso.
-          </p>
-          
-          <a href="/formulario" class="card-link inline-flex items-center gap-2 text-sm font-semibold text-blue-500 no-underline transition-all hover:gap-3">
-            Solicitar Información <span class="material-symbols-outlined text-sm">arrow_forward</span>
-          </a>
-        </div>
       </div>
-
-      <!-- 3. Soporte y Gestión TI -->
-      <div class="card bg-[#0a1a2e]/90 backdrop-blur-xl border border-white/5 p-10 md:p-14 relative overflow-hidden cursor-pointer" data-index="2">
-        
-        <div class="relative z-10 flex flex-col h-full">
-          <div class="flex flex-col md:flex-row md:items-center gap-6 mb-8">
-            <div class="w-16 h-16 bg-[#1e4db7] rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-[#1e4db7]/20">
-              <span class="material-symbols-outlined text-white text-3xl">support_agent</span>
-            </div>
-            <div class="flex flex-col">
-              <h3 class="text-2xl md:text-4xl font-bold text-white leading-tight">Soporte y Gestión TI</h3>
-              <p class="text-[0.7rem] md:text-[0.8rem] font-bold uppercase tracking-wider text-blue-400 mt-1">Continuidad Operativa</p>
-            </div>
-          </div>
-
-          <p class="text-slate-300 text-sm md:text-lg leading-relaxed font-light mb-8 max-w-sm">
-            Soporte técnico proactivo y gestión de infraestructura para que su negocio nunca se detenga.
-          </p>
-          
-          <a href="/formulario" class="card-link inline-flex items-center gap-2 text-sm font-semibold text-blue-500 no-underline transition-all hover:gap-3">
-            Solicitar Información <span class="material-symbols-outlined text-sm">arrow_forward</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- 4. Consultoría Estratégica -->
-      <div class="card bg-[#0a1a2e]/90 backdrop-blur-xl border border-white/5 p-10 md:p-14 relative overflow-hidden cursor-pointer" data-index="3">
-        
-        <div class="relative z-10 flex flex-col h-full">
-          <div class="flex flex-col md:flex-row md:items-center gap-6 mb-8">
-            <div class="w-16 h-16 bg-[#1e4db7] rounded-2xl flex items-center justify-center shrink-0 shadow-lg shadow-[#1e4db7]/20">
-              <span class="material-symbols-outlined text-white text-3xl">analytics</span>
-            </div>
-            <div class="flex flex-col">
-              <h3 class="text-2xl md:text-4xl font-bold text-white leading-tight">Consultoría Estratégica</h3>
-              <p class="text-[0.7rem] md:text-[0.8rem] font-bold uppercase tracking-wider text-blue-400 mt-1">Transformación Digital</p>
-            </div>
-          </div>
-
-          <p class="text-slate-300 text-sm md:text-lg leading-relaxed font-light mb-8 max-w-sm">
-            Alineamos la tecnología con sus objetivos de negocio mediante planificación estratégica.
-          </p>
-          
-          <a href="/formulario" class="card-link inline-flex items-center gap-2 text-sm font-semibold text-blue-500 no-underline transition-all hover:gap-3">
-            Solicitar Información <span class="material-symbols-outlined text-sm">arrow_forward</span>
-          </a>
-        </div>
-      </div>
-
     </div>
-  </div>
 
-  <div class="carousel-controls flex items-center justify-center gap-6 mt-10">
-    <button class="ctrl-btn w-12 h-12 rounded-full border border-white/20 bg-white/5 text-white flex items-center justify-center transition-all hover:bg-white hover:text-[#053D8A]" id="prev" aria-label="Anterior">
-      <span class="material-symbols-outlined">chevron_left</span>
-    </button>
-    <div class="dots flex gap-2 items-center" id="dots"></div>
-    <button class="ctrl-btn w-12 h-12 rounded-full border border-white/20 bg-white/5 text-white flex items-center justify-center transition-all hover:bg-white hover:text-[#053D8A]" id="next" aria-label="Siguiente">
-      <span class="material-symbols-outlined">chevron_right</span>
-    </button>
+    <div class="carousel-controls flex items-center justify-center gap-6 mt-10">
+      <button class="ctrl-btn w-12 h-12 rounded-full border border-white/20 bg-white/5 text-white flex items-center justify-center transition-all hover:bg-white hover:text-[#053D8A]" id="prev" aria-label="Anterior">
+        <span class="material-symbols-outlined">chevron_left</span>
+      </button>
+      <div class="dots flex gap-2 items-center" id="dots"></div>
+      <button class="ctrl-btn w-12 h-12 rounded-full border border-white/20 bg-white/5 text-white flex items-center justify-center transition-all hover:bg-white hover:text-[#053D8A]" id="next" aria-label="Siguiente">
+        <span class="material-symbols-outlined">chevron_right</span>
+      </button>
+    </div>
   </div>
 </section>
 
 <style>
   .carousel-wrapper {
-    mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
   }
 
   .carousel-track {
@@ -132,44 +108,35 @@ import { Icon } from 'astro-icon/components';
   }
 
   .card {
-      flex: 0 0 620px;
-      max-width: 620px;
-      background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 4rem;
-      padding: 3.5rem 2.8rem 3rem;
-      position: relative;
-      overflow: hidden;
+      flex: 0 0 320px;
+      max-width: 320px;
+      height: 520px;
       box-shadow: 
         0 4px 24px rgba(0, 0, 0, 0.3),
         inset 0 1px 1px rgba(255, 255, 255, 0.05);
-      cursor: pointer;
-      /* Default: inactive state */
-      filter: blur(4px);
-      opacity: 0.4;
-      transform: scale(0.85);
-      transition: filter 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-                  opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-                  transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                  box-shadow 0.6s ease;
+      /* Default: inactive state (distant cards) */
+      opacity: 0.35;
+      transform: scale(0.78);
+      filter: blur(2.5px);
       z-index: 1;
-    }
+      will-change: transform, opacity, filter, box-shadow;
+  }
 
-    .card.active {
+  .card.active {
       filter: blur(0px);
       opacity: 1;
-      transform: scale(1);
+      transform: scale(1) translateY(-10px);
       box-shadow: 
-        0 25px 50px -12px rgba(0, 0, 0, 0.5),
+        0 30px 60px rgba(0,0,0,0.55),
         inset 0 1px 1px rgba(255, 255, 255, 0.1);
       z-index: 10;
-      border-color: rgba(255, 255, 255, 0.15);
-    }
+      border-color: rgba(255,255,255,0.14);
+  }
 
   .card.adjacent {
-    filter: blur(1.5px);
-    opacity: 0.6;
-    transform: scale(0.95);
+    filter: blur(0.8px);
+    opacity: 0.72;
+    transform: scale(0.88);
   }
 
   .dot {
@@ -182,7 +149,7 @@ import { Icon } from 'astro-icon/components';
   }
 
   .dot.active {
-    background: #3b82f6; /* Blue active dot */
+    background: #ffffff; /* White active dot */
     width: 32px;
     border-radius: 5px;
   }
@@ -190,9 +157,9 @@ import { Icon } from 'astro-icon/components';
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .card {
-        flex: 0 0 340px;
-        max-width: 340px;
-        padding: 2.5rem !important;
+        flex: 0 0 280px;
+        max-width: 280px;
+        height: 480px;
     }
     .carousel-track {
         gap: 20px;
@@ -203,11 +170,10 @@ import { Icon } from 'astro-icon/components';
 <script>
   const track = document.getElementById('track');
   const dotsContainer = document.getElementById('dots');
-  const cards = Array.from(track?.querySelectorAll('.card') || []) as HTMLElement[];
+  const cards = Array.from(track?.querySelectorAll('.card') || []);
   const prevBtn = document.getElementById('prev');
   const nextBtn = document.getElementById('next');
   
-  const gap = 32; // Matched with CSS gap
   const total = cards.length;
   let current = 0;
 
@@ -216,7 +182,7 @@ import { Icon } from 'astro-icon/components';
     const d = document.createElement('div');
     d.className = 'dot';
     d.addEventListener('click', () => goTo(i));
-    dotsContainer?.appendChild(d);
+    if (dotsContainer) dotsContainer.appendChild(d);
   });
 
   function updateCards() {
@@ -230,7 +196,11 @@ import { Icon } from 'astro-icon/components';
     });
     
     document.querySelectorAll('.dot').forEach((d, i) => {
-        d.classList.toggle('active', i === current);
+        if (i === current) {
+            d.classList.add('active');
+        } else {
+            d.classList.remove('active');
+        }
     });
   }
 
@@ -238,12 +208,12 @@ import { Icon } from 'astro-icon/components';
     if (index < 0 || index >= total) return;
     current = index;
 
-    const wrapper = document.querySelector('.carousel-wrapper') as HTMLElement;
+    const wrapper = document.querySelector('.carousel-wrapper');
     if (!wrapper || !track || cards.length === 0) return;
 
     const card = cards[current];
     
-    // 1. Get real visual dimensions (includes scale/transforms)
+    // 1. Get real visual dimensions
     const wrapperRect = wrapper.getBoundingClientRect();
     const cardRect = card.getBoundingClientRect();
 
@@ -256,10 +226,9 @@ import { Icon } from 'astro-icon/components';
     const wrapperCenter = wrapperRect.left + (wrapperRect.width / 2);
     const cardCenter = cardRect.left + (cardRect.width / 2);
     
-    // The visual offset needed to center the card center with the wrapper center
+    // The visual offset needed to center the card
     const offset = wrapperCenter - cardCenter;
 
-    // 4. Apply the new translation relative to the current one
     track.style.transform = `translateX(${currentTranslateX + offset}px)`;
 
     updateCards();
@@ -277,18 +246,26 @@ import { Icon } from 'astro-icon/components';
     }, 50);
   }, 100);
 
-  window.addEventListener('resize', () => goTo(current));
+  window.addEventListener('resize', () => {
+     if (track) track.style.transition = 'none';
+     goTo(current);
+     setTimeout(() => {
+        if (track) track.style.transition = '';
+     }, 50);
+  });
 
-  prevBtn?.addEventListener('click', () => goTo(current - 1));
-  nextBtn?.addEventListener('click', () => goTo(current + 1));
+  if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
 
   // Touch support
   let startX = 0;
-  track?.addEventListener('touchstart', (e: any) => startX = e.touches[0].clientX);
-  track?.addEventListener('touchend', (e: any) => {
-    const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
-  });
+  if (track) {
+      track.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+      track.addEventListener('touchend', (e) => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+      });
+  }
 
   // Click on cards to focus them
   cards.forEach((card, i) => {
