@@ -5,8 +5,9 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
-<nav id="main-header" class="fixed top-0 left-0 w-full z-50 py-2 transition-all duration-300">
-  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+<nav id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+  <div id="header-bg" class="absolute top-0 left-0 w-full h-[80px] transition-all duration-300 pointer-events-none -z-10 bg-transparent" style="-webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%); mask-image: linear-gradient(to bottom, black 30%, transparent 100%);"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
     <div class="flex items-center gap-2">
       <a href="/" aria-label="Volver al inicio" class="cursor-pointer transition-transform hover:scale-105">
         <Image 
@@ -36,6 +37,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
 
 <script>
   const header = document.getElementById('main-header');
+  const headerBg = document.getElementById('header-bg');
   // Target the logo image specifically for the shrink effect
   const logo = header?.querySelector('div a img'); 
 
@@ -44,12 +46,12 @@ const currentPath = pathname.slice(1); // remove the first "/"
 
     if (currentScrollY > 50) {
       // SCROLLED STATE
-      header?.classList.add('bg-black/40', 'backdrop-blur-[2px]');
+      headerBg?.classList.add('bg-gradient-to-b', 'from-[#020817]/90', 'via-[#0a1829]/70', 'to-transparent', 'backdrop-blur-md');
       logo?.classList.remove('translate-y-[1px]');
       
     } else {
       // TOP STATE
-      header?.classList.remove('bg-black/40', 'backdrop-blur-[2px]');
+      headerBg?.classList.remove('bg-gradient-to-b', 'from-[#020817]/90', 'via-[#0a1829]/70', 'to-transparent', 'backdrop-blur-md');
       logo?.classList.add('translate-y-[1px]');
     }
     
