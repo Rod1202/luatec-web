@@ -131,17 +131,42 @@ body::before {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 300vh;
     z-index: -2;
-    background-image: linear-gradient(180deg,
-            #0a4c9c 0%,
-            #053D8A 10%,
-            #052a5c 20%,
-            #051c3a 35%,
-            #0a1829 50%,
-            #040a12 65%,
-            #000000 80%,
-            #000000 100%);
+    background-image: 
+        linear-gradient(180deg, 
+            rgba(5, 61, 138, 0) 0%,
+            rgba(5, 61, 138, 0) 15%,
+            rgba(5, 61, 138, 0.15) 25%,
+            rgba(5, 61, 138, 0.4) 40%,
+            rgba(5, 61, 138, 0.75) 65%,
+            rgba(5, 61, 138, 1) 100%
+        ),
+        url('../assets/branding/background-img.avif');
+    background-size: 100% auto;
+    background-position: top center;
+    background-repeat: no-repeat;
+    image-rendering: high-quality;
+    -webkit-mask-image: linear-gradient(180deg,
+            black 0%,
+            black 20%,
+            rgba(0, 0, 0, 0.98) 25%,
+            rgba(0, 0, 0, 0.9) 32%,
+            rgba(0, 0, 0, 0.75) 42%,
+            rgba(0, 0, 0, 0.5) 55%,
+            rgba(0, 0, 0, 0.25) 70%,
+            rgba(0, 0, 0, 0.05) 85%,
+            transparent 95%);
+    mask-image: linear-gradient(180deg,
+            black 0%,
+            black 20%,
+            rgba(0, 0, 0, 0.98) 25%,
+            rgba(0, 0, 0, 0.9) 32%,
+            rgba(0, 0, 0, 0.75) 42%,
+            rgba(0, 0, 0, 0.5) 55%,
+            rgba(0, 0, 0, 0.25) 70%,
+            rgba(0, 0, 0, 0.05) 85%,
+            transparent 95%);
 }
 
 body::after {
@@ -150,10 +175,32 @@ body::after {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 300vh;
     z-index: -1;
     pointer-events: none;
-    background-image: radial-gradient(ellipse 900px 700px at 85% 150px, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+    background: linear-gradient(180deg,
+            rgba(5, 61, 138, 0.00) 0%,
+            rgba(5, 61, 138, 0.00) 18%,
+            rgba(5, 61, 138, 0.06) 24%,
+            rgba(5, 61, 138, 0.14) 29%,
+            rgba(5, 61, 138, 0.24) 33%,
+            rgba(5, 61, 138, 0.36) 37%,
+            rgba(5, 61, 138, 0.48) 41%,
+            rgba(5, 61, 138, 0.60) 45%,
+            rgba(5, 61, 138, 0.70) 49%,
+            rgba(5, 61, 138, 0.79) 53%,
+            rgba(5, 61, 138, 0.86) 57%,
+            rgba(4, 50, 115, 0.91) 61%,
+            rgba(4, 42, 98, 0.94) 65%,
+            rgba(3, 33, 78, 0.96) 68%,
+            rgba(2, 24, 58, 0.97) 71%,
+            rgba(1, 17, 42, 0.98) 74%,
+            rgba(1, 11, 28, 0.99) 77%,
+            rgba(0, 7, 18, 1) 80%,
+            rgba(0, 4, 10, 1) 83%,
+            rgba(0, 2, 5, 1) 87%,
+            rgba(0, 0, 0, 1) 91%,
+            rgba(0, 0, 0, 1) 100%);
 }
 
 /* Scroll Animation Utilities */

@@ -59,11 +59,11 @@ export default function LiquidEther({
     cursorSize = 100,
     isViscous = false,
     viscous = 30,
-    iterationsViscous = 32,
-    iterationsPoisson = 32,
+    iterationsViscous = 20,
+    iterationsPoisson = 20,
     dt = 0.014,
     BFECC = true,
-    resolution = 0.5,
+    resolution = 0.4,
     isBounce = false,
     colors = defaultColors,
     style = {},
@@ -846,10 +846,10 @@ export default function LiquidEther({
             pressure!: Pressure;
             constructor(options?: Partial<SimOptions>) {
                 this.options = {
-                    iterations_poisson: 32,
-                    iterations_viscous: 32,
+                    iterations_poisson: 20,
+                    iterations_viscous: 20,
                     mouse_force: 20,
-                    resolution: 0.5,
+                    resolution: 0.4,
                     cursor_size: 100,
                     viscous: 30,
                     isBounce: false,

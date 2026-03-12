@@ -12,39 +12,39 @@ const solutions = [
     title: 'Cloud e Infraestructura',
     description: 'Migración cloud, redes y servidores escalables para máxima disponibilidad.',
     image: cloudImg,
-    color: '#1a5294'
+    color: '#053D8A'
   },
   {
     title: 'Venta de Hardware y Equipamiento',
     description: 'Equipos, accesorios y repuestos tecnológicos adaptados a cada necesidad.',
     image: hardwareImg,
-    color: '#1e4b38'
+    color: '#053D8A'
   },
  
   {
     title: 'Soporte Técnico y Mantenimiento',
-    description: 'Soporte especializado, diagnóstico rápido y mantenimiento para continuidad operativa.',
+    description: 'Soporte especializado, diagnóstico rápido y mantenimiento preventivo.',
     image: supportImg,
-    color: '#342a59'
+    color: '#053D8A'
   },
   {
     title: 'Consultoría de TI e Infraestructura',
     description: 'Estrategia tecnológica, optimización de infraestructura y crecimiento digital empresarial.',
     image: consultingImg,
-    color: '#6e3012'
+    color: '#053D8A'
   },
   {
     title: 'Ciberseguridad',
     description: 'Protección avanzada de datos con monitoreo, cifrado y control de accesos.',
     image: cyberImg,
-    color: '#0d4e5c'
+    color: '#053D8A'
   },
 
   {
     title: 'Alquiler de equipos de cómputo',
     description: 'Equipos tecnológicos en alquiler flexible para proyectos y operaciones temporales.',
     image: rentalImg,
-    color: '#42254d'
+    color: '#053D8A'
   }
 ];
 ---
@@ -66,14 +66,20 @@ const solutions = [
               <div class="absolute inset-0" style={`background: linear-gradient(to bottom, transparent 0%, transparent 20%, ${solution.color} 100%);`}></div>
             </div>
 
-            <div class="relative z-10 flex-1 w-full flex flex-col items-start justify-end px-6 pb-6 pt-[55%] text-left">
-              <div class="flex flex-col gap-2 w-full">
-                <h3 class="text-[1.3rem] md:text-[1.5rem] font-medium text-white leading-tight tracking-wide pr-2">{solution.title}</h3>
-                <p class="text-[0.75rem] md:text-[0.8rem] text-white/90 leading-relaxed max-w-[95%] font-light">{solution.description}</p>
+            <div class="relative z-10 flex-1 w-full flex flex-col items-start justify-end px-7 pb-8 pt-[55%] text-left">
+              <div class="flex flex-col gap-2 w-full mb-4">
+                <span class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/50 mb-1">Solución</span>
+                <h3 class="text-[1.5rem] md:text-[1.75rem] font-bold text-white leading-[1.15] tracking-tight pr-2 group-hover:text-blue-200 transition-colors [text-wrap:balance]">
+                  {solution.title}
+                </h3>
+                <p class="text-[0.85rem] md:text-[0.9rem] text-white/70 leading-relaxed max-w-[90%] font-normal [text-wrap:pretty]">
+                  {solution.description}
+                </p>
               </div>
               
-              <a href="/formulario" class="mt-4 text-white text-[0.8rem] font-medium transition-colors inline-flex items-center hover:opacity-80">
+              <a href="/formulario" class="group/link text-white text-[0.8rem] font-semibold transition-all inline-flex items-center gap-2 hover:translate-x-1">
                 Solicitar información
+                <span class="material-symbols-outlined text-[1rem] transition-transform group-hover/link:translate-x-1">arrow_right_alt</span>
               </a>
             </div>
           </div>
