@@ -20,7 +20,6 @@ const solutions = [
     image: hardwareImg,
     color: '#053D8A'
   },
- 
   {
     title: 'Soporte Técnico y Mantenimiento',
     description: 'Soporte especializado, diagnóstico rápido y mantenimiento preventivo.',
@@ -39,7 +38,6 @@ const solutions = [
     image: cyberImg,
     color: '#053D8A'
   },
-
   {
     title: 'Alquiler de equipos de cómputo',
     description: 'Equipos tecnológicos en alquiler flexible para proyectos y operaciones temporales.',
@@ -51,33 +49,34 @@ const solutions = [
 
 <section class="carousel-section w-full overflow-hidden bg-transparent py-10 md:py-16" id="soluciones">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-8 md:mb-10">
-      <h2 class="text-3xl md:text-5xl font-bold text-white mb-2 md:mb-4">Nuestras Soluciones</h2>
+    <div class="text-center mb-16 md:mb-20">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-wide mb-2 md:mb-4">Nuestras Soluciones</h2>
     </div>
 
     <div class="carousel-wrapper relative overflow-hidden py-4">
       <div class="carousel-track flex transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform items-center h-[480px] md:h-[540px]" id="track">
 
         {solutions.map((solution, index) => (
-          <div class="card relative flex-shrink-0 cursor-pointer overflow-hidden rounded-[2rem] border border-white/10 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col group" data-index={index} style={`background-color: ${solution.color};`}>
+          <div class="card relative flex-shrink-0 cursor-pointer overflow-hidden rounded-[2rem] border border-white/10 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col group bg-[#053D8A]" data-index={index}>
             
             <div class="absolute inset-0 h-[65%] w-full z-0">
               <Image src={solution.image} alt={solution.title} class="w-full h-full object-cover transition-transform duration-700" />
-              <div class="absolute inset-0" style={`background: linear-gradient(to bottom, transparent 0%, transparent 20%, ${solution.color} 100%);`}></div>
             </div>
+            <!-- Gradient overlay cubriendo toda la tarjeta (ahora relativo a .card por estar fuera del inner div) -->
+            <div class="absolute inset-0 z-0 gradient-overlay transition-colors duration-500 rounded-[2rem]" style={`background: linear-gradient(to bottom, transparent 0%, transparent 20%, ${solution.color} 65%, ${solution.color} 100%);`}></div>
 
             <div class="relative z-10 flex-1 w-full flex flex-col items-start justify-end px-7 pb-8 pt-[55%] text-left">
               <div class="flex flex-col gap-2 w-full mb-4">
-                <span class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-white/50 mb-1">Solución</span>
-                <h3 class="text-[1.5rem] md:text-[1.75rem] font-bold text-white leading-[1.15] tracking-tight pr-2 group-hover:text-blue-200 transition-colors [text-wrap:balance]">
+                <span class="text-[0.65rem] font-bold uppercase tracking-[0.2em] mb-1 text-white/50">Solución</span>
+                <h3 class="text-[1.5rem] md:text-[1.75rem] font-bold leading-[1.15] tracking-tight pr-2 transition-colors [text-wrap:balance] text-white group-hover:text-blue-200">
                   {solution.title}
                 </h3>
-                <p class="text-[0.85rem] md:text-[0.9rem] text-white/70 leading-relaxed max-w-[90%] font-normal [text-wrap:pretty]">
+                <p class="text-[0.85rem] md:text-[0.9rem] leading-relaxed max-w-[90%] font-normal [text-wrap:pretty] text-white/70">
                   {solution.description}
                 </p>
               </div>
               
-              <a href="/formulario" class="group/link text-white text-[0.8rem] font-semibold transition-all inline-flex items-center gap-2 hover:translate-x-1">
+              <a href="/formulario" class="group/link text-[0.8rem] font-semibold transition-all inline-flex items-center gap-2 hover:translate-x-1 text-white">
                 Solicitar información
                 <span class="material-symbols-outlined text-[1rem] transition-transform group-hover/link:translate-x-1">arrow_right_alt</span>
               </a>
@@ -88,13 +87,13 @@ const solutions = [
       </div>
     </div>
 
-    <div class="carousel-controls flex items-center justify-center gap-6 mt-6 md:mt-8">
-      <button class="ctrl-btn w-12 h-12 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white flex items-center justify-center transition-all hover:bg-white/20 hover:border-white hover:scale-105" id="prev" aria-label="Anterior">
-        <span class="material-symbols-outlined">chevron_left</span>
+    <div class="carousel-controls flex items-center justify-center gap-4 mt-2 mb-2 relative z-20">
+      <button class="ctrl-btn w-10 h-10 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white flex items-center justify-center transition-all hover:bg-white/20 hover:border-white hover:scale-105" id="prev" aria-label="Anterior">
+        <span class="material-symbols-outlined text-[1.1rem]">chevron_left</span>
       </button>
       <div class="dots flex gap-2 items-center" id="dots"></div>
-      <button class="ctrl-btn w-12 h-12 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white flex items-center justify-center transition-all hover:bg-white/20 hover:border-white hover:scale-105" id="next" aria-label="Siguiente">
-        <span class="material-symbols-outlined">chevron_right</span>
+      <button class="ctrl-btn w-10 h-10 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white flex items-center justify-center transition-all hover:bg-white/20 hover:border-white hover:scale-105" id="next" aria-label="Siguiente">
+        <span class="material-symbols-outlined text-[1.1rem]">chevron_right</span>
       </button>
     </div>
   </div>
@@ -102,25 +101,25 @@ const solutions = [
 
 <style>
   .carousel-wrapper {
-    mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
   }
 
   .carousel-track {
-    gap: 32px;
+    gap: 72px;
   }
 
   .card {
-      flex: 0 0 320px;
-      max-width: 320px;
+      flex: 0 0 340px;
+      max-width: 340px;
       height: 480px;
       box-shadow: 
         0 4px 24px rgba(0, 0, 0, 0.3),
         inset 0 1px 1px rgba(255, 255, 255, 0.05);
       /* Default: inactive state (distant cards) */
-      opacity: 0.35;
-      transform: scale(0.78);
-      filter: blur(2.5px);
+      opacity: 0.4;
+      transform: scale(0.85);
+      filter: blur(2px);
       z-index: 1;
       will-change: transform, opacity, filter, box-shadow;
   }
@@ -128,33 +127,42 @@ const solutions = [
   .card.active {
       filter: blur(0px);
       opacity: 1;
-      transform: scale(1) translateY(-10px);
+      transform: scale(1.15) translateY(-10px);
       box-shadow: 
         0 30px 60px rgba(0,0,0,0.55),
         inset 0 1px 1px rgba(255, 255, 255, 0.1);
       z-index: 10;
-      border-color: rgba(255,255,255,0.14);
+      border-color: rgba(255,255,255,0.2);
   }
 
   .card.adjacent {
-    filter: blur(0.8px);
-    opacity: 0.72;
-    transform: scale(0.88);
+    filter: blur(1.5px);
+    opacity: 0.7;
+    transform: scale(0.92);
+  }
+
+  /* Cambia el fondo general y el degradado interno cuando la tarjeta está seleccionada al frente */
+  .card.active {
+      background-color: #02183b !important; /* Un azul marino casi negro para contrastar */
+  }
+
+  .card.active .gradient-overlay {
+      background: linear-gradient(to bottom, transparent 0%, transparent 15%, #02183b 65%, #02183b 100%) !important;
   }
 
   .dot {
-    width: 10px;
-    height: 10px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.3);
     cursor: pointer;
     transition: all 0.3s ease;
   }
 
   .dot.active {
     background: #ffffff; /* White active dot */
-    width: 32px;
-    border-radius: 5px;
+    width: 24px;
+    border-radius: 3px;
   }
 
   /* Responsive adjustments */
@@ -163,6 +171,9 @@ const solutions = [
         flex: 0 0 280px;
         max-width: 280px;
         height: 420px;
+    }
+    .card.active {
+        transform: scale(1.1) translateY(-5px);
     }
     .carousel-track {
         gap: 20px;
@@ -178,7 +189,7 @@ const solutions = [
   const nextBtn = document.getElementById('next');
   
   const total = cards.length;
-  let current = 0;
+  let current = 1;
 
   // Create dots
   cards.forEach((_, i) => {
