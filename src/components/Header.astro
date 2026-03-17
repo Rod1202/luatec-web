@@ -13,9 +13,9 @@ const currentPath = pathname.slice(1); // remove the first "/"
         <Image 
           src={logoBase} 
           alt="LUATEC" 
-          width={200}
-          height={80}
-          class="h-16 md:h-20 w-auto scale-100 origin-left translate-y-[1px] translate-x-[-8px] transition-transform duration-300" 
+          width={208}
+          height={84}
+          class="h-[68px] md:h-[84px] w-auto scale-100 origin-left translate-y-[1px] translate-x-[-8px] transition-transform duration-300" 
           loading="eager"
         />
       </a>
@@ -23,15 +23,14 @@ const currentPath = pathname.slice(1); // remove the first "/"
     
     <div class="flex items-center gap-4">
         <a 
-          class="flex items-center justify-center p-1.5 md:p-2 pr-3 md:pr-4 rounded-full bg-white text-slate-900 shadow-sm transition-all duration-300 hover:shadow-md active:scale-95 group" 
+          class="flex items-center justify-center p-1.5 md:p-2 rounded-full bg-white text-slate-900 shadow-sm transition-all duration-300 hover:shadow-md active:scale-95 group" 
           href="/formulario"
           data-astro-prefetch
           aria-label="Contáctanos"
         >
-          <div class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-black text-white mr-2 transition-transform duration-300 group-hover:bg-slate-800">
+          <div class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-600 text-white transition-transform duration-300 group-hover:bg-blue-700">
             <span class="material-symbols-outlined text-[18px] md:text-[20px] transition-transform duration-300 group-hover:scale-110">mail</span>
           </div>
-          <span class="text-xs md:text-sm font-semibold tracking-wide">Mensaje</span>
         </a>
     </div>
   </div>
