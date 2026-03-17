@@ -6,8 +6,8 @@ const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
 <nav id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
-  <div id="header-bg" class="absolute top-0 left-0 w-full h-[80px] transition-all duration-300 pointer-events-none -z-10 bg-transparent" style="-webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%); mask-image: linear-gradient(to bottom, black 30%, transparent 100%);"></div>
-  <div class="relative z-10 max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
+  <div id="header-bg" class="absolute top-0 left-0 w-full h-[90px] transition-all duration-300 pointer-events-none -z-10 bg-transparent" style="-webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%); mask-image: linear-gradient(to bottom, black 65%, transparent 100%);"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
     <div class="flex items-center gap-2">
       <a href="/" aria-label="Volver al inicio" class="cursor-pointer transition-transform hover:scale-105">
         <Image 
@@ -15,7 +15,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
           alt="LUATEC" 
           width={200}
           height={80}
-          class="h-22 w-auto scale-110 origin-left translate-y-[1px] translate-x-[-16px] transition-transform duration-300" 
+          class="h-16 md:h-20 w-auto scale-100 origin-left translate-y-[1px] translate-x-[-8px] transition-transform duration-300" 
           loading="eager"
         />
       </a>
@@ -23,13 +23,15 @@ const currentPath = pathname.slice(1); // remove the first "/"
     
     <div class="flex items-center gap-4">
         <a 
-          class="flex items-center justify-center w-11 h-11 md:w-auto md:h-auto md:px-6 md:py-2.5 rounded-xl text-base font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-[0_10px_25px_-5px_rgba(37,99,235,0.4)] transition-all duration-300 active:scale-95 border border-white/10" 
+          class="flex items-center justify-center p-1.5 md:p-2 pr-3 md:pr-4 rounded-full bg-white text-slate-900 shadow-sm transition-all duration-300 hover:shadow-md active:scale-95 group" 
           href="/formulario"
           data-astro-prefetch
           aria-label="Contáctanos"
         >
-          <span class="material-symbols-outlined md:!hidden">mail</span>
-          <span class="hidden md:inline">Contáctanos</span>
+          <div class="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-black text-white mr-2 transition-transform duration-300 group-hover:bg-slate-800">
+            <span class="material-symbols-outlined text-[18px] md:text-[20px] transition-transform duration-300 group-hover:scale-110">mail</span>
+          </div>
+          <span class="text-xs md:text-sm font-semibold tracking-wide">Mensaje</span>
         </a>
     </div>
   </div>
@@ -46,12 +48,12 @@ const currentPath = pathname.slice(1); // remove the first "/"
 
     if (currentScrollY > 50) {
       // SCROLLED STATE
-      headerBg?.classList.add('bg-gradient-to-b', 'from-[#020817]/90', 'via-[#0a1829]/70', 'to-transparent', 'backdrop-blur-md');
+      headerBg?.classList.add('bg-gradient-to-b', 'from-[#020817]', 'via-[#0a1829]/90', 'to-transparent', 'backdrop-blur-xl', 'border-b', 'border-white/5');
       logo?.classList.remove('translate-y-[1px]');
       
     } else {
       // TOP STATE
-      headerBg?.classList.remove('bg-gradient-to-b', 'from-[#020817]/90', 'via-[#0a1829]/70', 'to-transparent', 'backdrop-blur-md');
+      headerBg?.classList.remove('bg-gradient-to-b', 'from-[#020817]', 'via-[#0a1829]/90', 'to-transparent', 'backdrop-blur-xl', 'border-b', 'border-white/5');
       logo?.classList.add('translate-y-[1px]');
     }
     

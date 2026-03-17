@@ -8,10 +8,7 @@ import GradientText from '../GradientText';
   id="inicio">
     <!-- Hero Content -->
     <div class="hero-content w-full max-w-7xl mx-auto px-6 relative z-10">
-        <div class="max-w-4xl">
-            <span class="inline-block px-4 py-1.5 rounded-full bg-[#053D8A]/30 text-white text-[10px] mobile:text-xs font-bold tracking-widest uppercase mb-8 border border-white/20 backdrop-blur-sm">
-                SOLUCIONES TECNOLÓGICAS CORPORATIVAS
-            </span>
+        <div class="max-w-3xl mt-4 md:mt-8">
             <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.1] mb-8 text-white">
                 La infraestructura <br/>
                 que convierte tu 
@@ -30,30 +27,19 @@ import GradientText from '../GradientText';
                 Diseñamos ecosistemas digitales de alto rendimiento para que tu tecnología sea tu mayor ventaja competitiva.
             </p>
             
-            <!-- Registration Form -->
             <div class="w-full max-w-xl">
-                 <form action="/formulario" method="GET" class="relative group">
-                    <div class="relative flex flex-col md:flex-row items-center bg-transparent md:bg-white/5 md:backdrop-blur-md md:border md:border-white/10 rounded-2xl md:p-1.5 md:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-300 md:group-hover:border-white/20 gap-4 md:gap-0">
-                        <!-- Input container: Styled on mobile -->
-                        <div class="relative flex-grow w-full md:w-auto flex items-center pl-4 group/input bg-white/5 backdrop-blur-md border border-white/10 rounded-xl md:rounded-none md:bg-transparent md:backdrop-blur-none md:border-none shadow-2xl md:shadow-none">
-                            <span class="material-symbols-outlined text-blue-400/70 mr-3 transition-colors group-focus-within/input:text-blue-400">mail</span>
-                            <input 
-                                type="email" 
-                                name="email"
-                                placeholder="Tu correo electrónico" 
-                                class="w-full bg-transparent border-none text-white placeholder:text-slate-400 focus:ring-0 py-4 md:py-3 text-sm md:text-base outline-none font-medium"
-                                required
-                            />
-                        </div>
-                        <!-- Button: Styled with consistent rounding on mobile -->
-                        <button type="submit" class="w-full md:w-auto bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 md:py-3 px-8 rounded-xl transition-all flex items-center justify-center gap-2 whitespace-nowrap shadow-xl active:scale-95 border border-white/10 md:border-none">
-                            Solicitar Información
-                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                        </button>
-                        <a href="/formulario" data-astro-prefetch class="hidden" aria-hidden="true">Prefetch</a>
-                    </div>
-                </form>
-                <p class="mt-4 text-xs text-slate-500 ml-2 font-medium">
+                 <a 
+                  class="inline-flex items-center justify-center p-2 pr-6 md:p-2 md:pr-8 rounded-full bg-white text-slate-900 shadow-xl transition-all duration-300 hover:shadow-2xl active:scale-95 group mb-4" 
+                  href="/formulario"
+                  data-astro-prefetch
+                  aria-label="Contáctanos"
+                >
+                  <div class="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black text-white mr-4 transition-transform duration-300 group-hover:bg-slate-800">
+                    <span class="material-symbols-outlined text-[20px] md:text-[24px] transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+                  </div>
+                  <span class="text-base md:text-lg font-bold tracking-wide">Contáctanos</span>
+                </a>
+                <p class="mt-4 text-xs text-slate-400 font-medium">
                     Recibe una asesoría técnica personalizada en menos de 24 horas.
                 </p>
             </div>
