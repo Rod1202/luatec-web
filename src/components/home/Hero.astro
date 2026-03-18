@@ -3,8 +3,7 @@ import GradientText from '../GradientText';
 ---
 
 <section
-  class="hero relative w-full flex flex-col justify-center pb-24 md:pb-32 overflow-hidden"
-  style="padding-top: calc(var(--header-height) + 6rem);"
+  class="hero relative w-full min-h-[100dvh] flex flex-col justify-center overflow-hidden pt-[110px] pb-12"
   id="inicio">
     <!-- Hero Content -->
     <div class="hero-content w-full max-w-7xl mx-auto px-6 relative z-10">
@@ -29,15 +28,16 @@ import GradientText from '../GradientText';
             
             <div class="w-full max-w-xl">
                  <a 
-                  class="inline-flex items-center justify-center p-2 pr-6 md:p-2 md:pr-8 rounded-full bg-white text-slate-900 shadow-xl transition-all duration-300 hover:shadow-2xl active:scale-95 group mb-4" 
+                  class="relative inline-flex items-center justify-center px-8 py-3.5 md:px-10 md:py-4 rounded-full bg-blue-600 text-white shadow-[0_3px_5px_-1px_rgba(37,99,235,0.4),0_6px_10px_0_rgba(37,99,235,0.2),0_1px_18px_0_rgba(37,99,235,0.12)] hover:bg-blue-600/90 hover:shadow-[0_5px_5px_-3px_rgba(37,99,235,0.4),0_8px_10px_1px_rgba(37,99,235,0.2),0_3px_14px_2px_rgba(37,99,235,0.12)] transition-all duration-300 active:scale-95 overflow-hidden group mb-4" 
                   href="/formulario"
                   data-astro-prefetch
                   aria-label="Contáctanos"
                 >
-                  <div class="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-600 text-white mr-4 transition-transform duration-300 group-hover:bg-blue-700">
+                  <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none"></div>
+                  <div class="relative z-10 flex items-center justify-center gap-3">
+                    <span class="text-base md:text-[1.1rem] font-medium tracking-wide">Contáctanos</span>
                     <span class="material-symbols-outlined text-[20px] md:text-[24px] transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
                   </div>
-                  <span class="text-base md:text-lg font-bold tracking-wide">Contáctanos</span>
                 </a>
                 <p class="mt-4 text-xs text-slate-400 font-medium">
                     Recibe una asesoría técnica personalizada en menos de 24 horas.

@@ -87,13 +87,13 @@ const solutions = [
       </div>
     </div>
 
-    <div class="carousel-controls flex items-center justify-center gap-4 mt-2 mb-2 relative z-20">
-      <button class="ctrl-btn w-10 h-10 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white flex items-center justify-center transition-all hover:bg-white/20 hover:border-white hover:scale-105" id="prev" aria-label="Anterior">
-        <span class="material-symbols-outlined text-[1.1rem]">chevron_left</span>
+    <div class="carousel-controls flex items-center justify-center gap-3 mt-4 mb-2 relative z-20 w-full mx-auto">
+      <button class="ctrl-btn w-8 h-8 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white flex items-center justify-center transition-all hover:bg-white/20 hover:border-white hover:scale-105" id="prev" aria-label="Anterior">
+        <span class="material-symbols-outlined text-[1rem]">chevron_left</span>
       </button>
-      <div class="dots flex gap-2 items-center" id="dots"></div>
-      <button class="ctrl-btn w-10 h-10 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white flex items-center justify-center transition-all hover:bg-white/20 hover:border-white hover:scale-105" id="next" aria-label="Siguiente">
-        <span class="material-symbols-outlined text-[1.1rem]">chevron_right</span>
+      <div class="dots flex gap-1.5 items-center justify-center" id="dots"></div>
+      <button class="ctrl-btn w-8 h-8 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white flex items-center justify-center transition-all hover:bg-white/20 hover:border-white hover:scale-105" id="next" aria-label="Siguiente">
+        <span class="material-symbols-outlined text-[1rem]">chevron_right</span>
       </button>
     </div>
   </div>
@@ -106,7 +106,7 @@ const solutions = [
   }
 
   .carousel-track {
-    gap: 72px;
+    gap: 140px;
   }
 
   .card {
@@ -151,8 +151,8 @@ const solutions = [
   }
 
   .dot {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.3);
     cursor: pointer;
@@ -161,7 +161,7 @@ const solutions = [
 
   .dot.active {
     background: #ffffff; /* White active dot */
-    width: 24px;
+    width: 16px;
     border-radius: 3px;
   }
 
