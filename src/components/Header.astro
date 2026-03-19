@@ -2,12 +2,16 @@
 import { Image } from "astro:assets";
 import logoBase from "../assets/branding/logo_base.avif";
 const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.slice(1); // remove the first "/"
+const isFormPage = pathname === '/formulario' || pathname === '/formulario/';
+
+// Use smaller height and padding exactly like the original design for the form page
+const headerHeight = isFormPage ? 'h-[90px]' : 'h-[140px] md:h-[160px]';
+const headerPadding = isFormPage ? 'py-3' : 'pt-10 pb-4 md:pt-12 md:pb-5';
 ---
 
 <nav id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
-  <div id="header-bg" class="absolute top-0 left-0 w-full h-[90px] transition-all duration-300 pointer-events-none -z-10 bg-transparent" style="-webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%); mask-image: linear-gradient(to bottom, black 65%, transparent 100%);"></div>
-  <div class="relative z-10 max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+  <div id="header-bg" class={`absolute top-0 left-0 w-full ${headerHeight} transition-all duration-300 pointer-events-none -z-10 bg-transparent`} style="-webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); mask-image: linear-gradient(to bottom, black 70%, transparent 100%);"></div>
+  <div class={`relative z-10 max-w-7xl mx-auto px-6 flex items-center justify-between ${headerPadding}`}>
     <div class="flex items-center gap-2">
       <a href="/" aria-label="Volver al inicio" class="cursor-pointer transition-transform hover:scale-105">
         <Image 
@@ -21,25 +25,24 @@ const currentPath = pathname.slice(1); // remove the first "/"
       </a>
     </div>
     
-    <div class="flex items-center gap-4">
-        <a 
-          class="relative flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full bg-blue-600 text-white shadow-[0_3px_5px_-1px_rgba(37,99,235,0.4),0_6px_10px_0_rgba(37,99,235,0.2),0_1px_18px_0_rgba(37,99,235,0.12)] hover:bg-blue-600/90 hover:shadow-[0_5px_5px_-3px_rgba(37,99,235,0.4),0_8px_10px_1px_rgba(37,99,235,0.2),0_3px_14px_2px_rgba(37,99,235,0.12)] transition-all duration-300 active:scale-95 overflow-hidden group" 
-          href="/formulario"
-          data-astro-prefetch
-          aria-label="Mensaje"
-        >
-          <!-- MD State Layer Overlay -->
-          <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-          <span class="relative z-10 material-symbols-outlined text-[20px] md:text-[24px] transition-transform duration-300 group-hover:scale-110">mail</span>
-        </a>
-    </div>
+    { !isFormPage && (
+      <div class="flex items-center gap-4">
+          <a 
+            class="relative flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full border border-white/30 bg-white/10 backdrop-blur-md text-white shadow-sm hover:bg-white/20 hover:border-white/50 transition-all duration-300 active:scale-95 group" 
+            href="/formulario"
+            data-astro-prefetch
+            aria-label="Mensaje"
+          >
+            <span class="relative z-10 material-symbols-outlined text-[20px] md:text-[24px] transition-transform duration-300 group-hover:scale-110">mail</span>
+          </a>
+      </div>
+    )}
   </div>
 </nav>
 
 <script>
   const header = document.getElementById('main-header');
   const headerBg = document.getElementById('header-bg');
-  // Target the logo image specifically for the shrink effect
   const logo = header?.querySelector('div a img'); 
 
   window.addEventListener('scroll', () => {
@@ -49,14 +52,11 @@ const currentPath = pathname.slice(1); // remove the first "/"
       // SCROLLED STATE
       headerBg?.classList.add('bg-gradient-to-b', 'from-[#020817]', 'via-[#0a1829]/90', 'to-transparent', 'backdrop-blur-xl', 'border-b', 'border-white/5');
       logo?.classList.remove('translate-y-[1px]');
-      
     } else {
       // TOP STATE
       headerBg?.classList.remove('bg-gradient-to-b', 'from-[#020817]', 'via-[#0a1829]/90', 'to-transparent', 'backdrop-blur-xl', 'border-b', 'border-white/5');
       logo?.classList.add('translate-y-[1px]');
     }
-    
-    // NOTE: Padding (py-2) remains fixed. No layout shifts.
   });
 </script>
 

@@ -10,5 +10,23 @@ import ContactForm from '../components/ContactForm.astro';
     <main class="pt-32 pb-12 md:pb-16 min-h-screen flex flex-col items-center">
         <ContactForm />
     </main>
-    <Footer />
+    <Footer showCTA={false} />
 </Layout>
+
+<style is:global>
+    body {
+        position: relative !important;
+    }
+    /* Remove the global background image exclusively for the form page, 
+       replacing it with a smooth dark blue base gradient */
+    body::before {
+        background-color: #000000 !important;
+        background-image: linear-gradient(180deg, #051A3B 0%, #000000 100%) !important;
+        mask-image: none !important;
+        -webkit-mask-image: none !important;
+        height: 100% !important;
+    }
+    body::after {
+        height: 100% !important;
+    }
+</style>
