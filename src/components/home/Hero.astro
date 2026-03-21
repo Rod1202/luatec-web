@@ -26,21 +26,18 @@ import GradientText from '../GradientText';
                 Diseñamos ecosistemas digitales de alto rendimiento para que tu tecnología sea tu mayor ventaja competitiva.
             </p>
             
-            <div class="w-full max-w-xl">
-                <form action="/formulario" class="relative flex items-center w-full max-w-[22rem] md:max-w-md bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-1.5 shadow-lg group focus-within:border-blue-400 focus-within:bg-white/15 transition-all duration-300 mb-4">
-                    <input 
-                        type="email" 
-                        placeholder="Correo electrónico" 
-                        class="w-full bg-transparent border-none outline-none text-white placeholder-slate-300 px-5 py-2.5 text-base focus:ring-0" 
-                        required
-                    />
-                    <button type="submit" class="flex-shrink-0 w-10 h-10 md:w-11 md:h-11 bg-blue-600 hover:bg-blue-500 rounded-full flex items-center justify-center text-white transition-all shadow-md active:scale-95">
-                        <span class="material-symbols-outlined text-[1.2rem]">arrow_forward</span>
-                    </button>
-                </form>
-                <p class="mt-4 text-xs text-slate-400 font-medium ml-2">
-                    Recibe una asesoría técnica personalizada en menos de 24 horas.
-                </p>
+            <div class="flex flex-col items-start gap-4">
+                <a 
+                    href="javascript:void(0)"
+                    id="cta-scroll"
+                    class="relative inline-flex items-center justify-center px-8 py-3.5 md:px-10 md:py-4 rounded-full bg-blue-600 text-white shadow-[0_3px_5px_-1px_rgba(37,99,235,0.4),0_6px_10px_0_rgba(37,99,235,0.2),0_1px_18px_0_rgba(37,99,235,0.12)] hover:bg-blue-600/90 hover:shadow-[0_5px_5px_-3px_rgba(37,99,235,0.4),0_8px_10px_1px_rgba(37,99,235,0.2),0_3px_14_2px_rgba(37,99,235,0.12)] transition-all duration-300 active:scale-95 overflow-hidden group"
+                >
+                    <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none"></div>
+                    <div class="relative z-10 flex items-center justify-center gap-3">
+                        <span class="text-base md:text-[1.1rem] font-medium tracking-wide">Conoce más</span>
+                        <span class="material-symbols-outlined text-[20px] md:text-[24px] transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -48,14 +45,22 @@ import GradientText from '../GradientText';
     <!-- Gradients removed as requested -->
 
     <script>
+        // Parallax effect
         window.addEventListener('scroll', () => {
             const hero = document.getElementById('inicio');
             if (hero) {
                 const scrollPosition = window.scrollY;
                 hero.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
-                // Optional: opacity fade for parallax content if desired
-                // hero.style.opacity = `${1 - scrollPosition / 1000}`;
             }
+        });
+
+        // "Conoce más" clean scroll without updating URL hash
+        const ctaButton = document.getElementById('cta-scroll');
+        const targetSection = document.getElementById('impacto-numeros');
+
+        ctaButton?.addEventListener('click', (e) => {
+            e.preventDefault();
+            targetSection?.scrollIntoView({ behavior: 'smooth' });
         });
     </script>
 </section>
