@@ -17,26 +17,19 @@
 }
 
 @layer utilities {
-    .dot-pattern {
-        background-image: radial-gradient(circle, #334155 1px, transparent 1px);
-        background-size: 32px 32px;
+    .glass-premium {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8);
     }
 
-    .hero-gradient {
-        background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+    .section-standard {
+      @apply w-full pt-8 pb-8 md:pt-12 md:pb-12 bg-transparent relative;
     }
 
-    .glass-card {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(4px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    }
-
-    @media (min-width: 768px) {
-        .glass-card {
-            backdrop-filter: blur(12px);
-        }
+    .container-main {
+      @apply max-w-7xl mx-auto px-6 w-full relative;
     }
 
     .service-card {
@@ -108,7 +101,7 @@
 }
 
 html {
-    background-color: #000000;
+    background-color: #053D8A;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -143,12 +136,15 @@ body::before {
             rgba(5, 61, 138, 0.5) 65%,
             rgba(5, 61, 138, 0.75) 100%),
         /* 2. Capa intermedia negra: Más agresiva. Empieza a oscurecer mucho antes para hundir la imagen de a pocos */
-        linear-gradient(180deg, 
-            transparent 0vw, 
-            transparent calc((1323 / 2752 * 100vw) - 35vw), /* Empieza a oscurecer a 35vw antes del final */
-            rgba(0, 0, 0, 0.7) calc((1323 / 2752 * 100vw) - 15vw), /* Oscurecimiento fuerte a la mitad del borde */
-            #000000 calc(1323 / 2752 * 100vw), /* 100% negro exactamente en el borde inferior */
-            #000000 300vh),
+        linear-gradient(180deg,
+            transparent 0vw,
+            transparent calc((1323 / 2752 * 100vw) - 35vw),
+            /* Empieza a oscurecer a 35vw antes del final */
+            rgba(0, 0, 0, 0.7) calc((1323 / 2752 * 100vw) - 15vw),
+            /* Oscurecimiento fuerte a la mitad del borde */
+            #000000 calc(1323 / 2752 * 100vw),
+            /* 100% negro exactamente en el borde inferior */
+            #053D8A 300vh),
         /* 3. Imagen al fondo */
         url('../assets/branding/background-img.avif');
     background-size: 100% auto;
@@ -191,17 +187,13 @@ body::after {
             rgba(5, 61, 138, 0.70) 49%,
             rgba(5, 61, 138, 0.79) 53%,
             rgba(5, 61, 138, 0.86) 57%,
-            rgba(4, 50, 115, 0.91) 61%,
-            rgba(4, 42, 98, 0.94) 65%,
-            rgba(3, 33, 78, 0.96) 68%,
-            rgba(2, 24, 58, 0.97) 71%,
-            rgba(1, 17, 42, 0.98) 74%,
-            rgba(1, 11, 28, 0.99) 77%,
-            rgba(0, 7, 18, 1) 80%,
-            rgba(0, 4, 10, 1) 83%,
-            rgba(0, 2, 5, 1) 87%,
-            rgba(0, 0, 0, 1) 91%,
-            rgba(0, 0, 0, 1) 100%);
+            rgba(5, 61, 138, 0.91) 61%,
+            rgba(5, 61, 138, 0.94) 65%,
+            rgba(5, 61, 138, 0.96) 68%,
+            rgba(5, 61, 138, 0.97) 71%,
+            rgba(5, 61, 138, 0.98) 74%,
+            rgba(5, 61, 138, 1) 77%,
+            rgba(5, 61, 138, 1) 100%);
 }
 
 /* Scroll Animation Utilities */

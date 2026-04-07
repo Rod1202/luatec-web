@@ -9,8 +9,7 @@ export interface Props {
 
 const { showCTA = true } = Astro.props;
 ---
-<footer class="w-full py-16 md:py-24 bg-transparent relative overflow-hidden group/footer">
-    <!-- Interactive LiquidEther Background -->
+<footer class="w-full pt-8 pb-16 md:pt-12 md:pb-24 bg-transparent relative overflow-hidden group/footer">
     <LiquidEther
         client:visible
         colors={['#06b6d4', '#1e3a8a', '#3b82f6']}
@@ -35,13 +34,11 @@ const { showCTA = true } = Astro.props;
 
         {showCTA && (
             <>
-                <!-- CTA TITLE -->
                 <h2 class="text-4xl md:text-5xl font-extrabold text-white text-center tracking-wide mb-12">
                     ¿Listo para transformar tu<br/>
                     <span class="text-blue-500">infraestructura?</span>
                 </h2>
 
-                <!-- SIMPLE CTA BUTTON -->
                 <div class="w-full flex justify-center mb-24">
                     <a 
                         href="/formulario"
@@ -59,7 +56,6 @@ const { showCTA = true } = Astro.props;
             </>
         )}
 
-        <!-- BRANDING -->
         <div class="flex flex-col items-center gap-6 mb-12">
             <Image 
                 src={logoBase} 
@@ -86,7 +82,7 @@ const { showCTA = true } = Astro.props;
 
                 <!-- Instagram -->
                 <a class="w-10 h-10 rounded-xl bg-transparent flex items-center justify-center text-slate-400 hover:text-white hover:-translate-y-1 transition-all duration-300"
-                   href="https://www.instagram.com"
+                   href="https://www.instagram.com/luatec_solutions/"
                    target="_blank"
                    rel="noopener noreferrer"
                    aria-label="Instagram"
@@ -98,7 +94,6 @@ const { showCTA = true } = Astro.props;
             </div>
         </div>
 
-        <!-- BOTTOM COPYRIGHT -->
         <div class="text-center pb-4">
             <p class="text-[0.55rem] md:text-[0.65rem] font-bold uppercase tracking-widest text-slate-500">
                 © {new Date().getFullYear()} LUATEC SOLUTIONS • POWERED BY RODRIGO CARBONEL

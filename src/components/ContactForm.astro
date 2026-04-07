@@ -4,10 +4,9 @@ import { FaLinkedin, FaWhatsapp, FaInstagram } from "react-icons/fa";
 ---
 
 <section class="relative z-10 w-full pt-0 pb-16 md:pt-0 md:pb-24">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="container-main">
         <div class="w-full bg-[#0c0c0c] backdrop-blur-xl border border-white/10 rounded-[2rem] md:rounded-[3.5rem] shadow-[0_30px_100px_rgba(0,0,0,0.8)] flex flex-col lg:flex-row overflow-hidden p-2 md:p-4">
         
-        <!-- FORM COLUMN -->
         <div class="flex-grow p-6 md:p-10">
             <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-2 tracking-tight">Envíanos un mensaje</h1>
             <p class="text-xs md:text-sm text-slate-400 mb-6 md:mb-8 font-medium">¿Tienes alguna pregunta? Nuestro equipo de expertos está listo para asesorarte.</p>
@@ -63,7 +62,6 @@ import { FaLinkedin, FaWhatsapp, FaInstagram } from "react-icons/fa";
             </form>
         </div>
 
-        <!-- SIDEBAR COLUMN -->
         <div class="lg:w-[420px] bg-gradient-to-br from-[#0f0f0f] to-[#1a1a1a] rounded-[1.8rem] md:rounded-[2.8rem] border border-white/10 p-8 md:p-10 text-white flex flex-col justify-between shadow-2xl relative overflow-hidden">
             <!-- Decorative inner glow -->
             <div class="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/10 blur-[80px] pointer-events-none"></div>
@@ -72,11 +70,10 @@ import { FaLinkedin, FaWhatsapp, FaInstagram } from "react-icons/fa";
                 <h3 class="text-2xl font-bold mb-10 tracking-tight">Canales Directos</h3>
                 
                 <div class="space-y-5">
-                    <!-- Office Card (NEW) -->
                     <div class="bg-white/5 p-5 rounded-2xl flex items-start gap-5 border border-white/5 hover:border-white/10 transition-colors group">
-                        <div class="w-11 h-11 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl group-hover:scale-110 transition-transform">
+                        <a href="https://maps.app.goo.gl/CWyjqQtQMpZd8kHY9" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl hover:scale-110 hover:bg-blue-500/20 transition-all">
                             <MdLocationOn />
-                        </div>
+                        </a>
                         <div>
                             <p class="text-[9px] uppercase tracking-[0.2em] text-slate-500 font-bold mb-1.5">Sede Corporativa:</p>
                             <p class="text-sm font-bold text-slate-200 leading-snug">
@@ -89,9 +86,9 @@ import { FaLinkedin, FaWhatsapp, FaInstagram } from "react-icons/fa";
 
 
                     <div class="bg-white/5 p-5 rounded-2xl flex items-start gap-5 border border-white/5 hover:border-white/10 transition-colors group">
-                        <div class="w-11 h-11 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl group-hover:scale-110 transition-transform">
+                        <a href="https://api.whatsapp.com/send?phone=51929706087&text=Hola,%20solicito%20mas%20informacion" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-green-500/10 flex items-center justify-center text-green-400 text-2xl hover:scale-110 hover:bg-green-500/20 transition-all">
                              <FaWhatsapp />
-                        </div>
+                        </a>
                         <div>
                             <p class="text-[9px] uppercase tracking-[0.2em] text-slate-500 font-bold mb-1.5">WhatsApp Corporativo:</p>
                             <p class="text-sm font-bold text-slate-200">+51 929 706 087</p>
@@ -99,9 +96,9 @@ import { FaLinkedin, FaWhatsapp, FaInstagram } from "react-icons/fa";
                     </div>
 
                     <div class="bg-white/5 p-5 rounded-2xl flex items-start gap-5 border border-white/5 hover:border-white/10 transition-colors group">
-                        <div class="w-11 h-11 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl group-hover:scale-110 transition-transform">
+                        <a href="mailto:ventas@luatecsolutions.com" class="w-11 h-11 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl hover:scale-110 hover:bg-blue-500/20 transition-all">
                             <MdEmail />
-                        </div>
+                        </a>
                         <div>
                             <p class="text-[9px] uppercase tracking-[0.2em] text-slate-500 font-bold mb-1.5">Enlace Institucional:</p>
                             <p class="text-sm font-bold text-slate-200">ventas@luatecsolutions.com</p>
@@ -118,8 +115,8 @@ import { FaLinkedin, FaWhatsapp, FaInstagram } from "react-icons/fa";
                         <a class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all duration-300" href="https://www.linkedin.com/company/luatec-solutions/" target="_blank">
                             <FaLinkedin />
                         </a>
-                        <a class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all duration-300" href="https://wa.link/lnei50" target="_blank">
-                            <FaWhatsapp />
+                        <a class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:bg-pink-600 hover:text-white transition-all duration-300" href="https://www.instagram.com/luatec_solutions/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <FaInstagram />
                         </a>
 
                     </div>
