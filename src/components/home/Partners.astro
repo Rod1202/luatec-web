@@ -1,59 +1,190 @@
 ---
 import { Image } from "astro:assets";
-import deltronLogo from "../../assets/logos/deltron.avif";
-import ingramLogo from "../../assets/logos/ingram.avif";
-import intcomexLogo from "../../assets/logos/intcomex.avif";
-import maximLogo from "../../assets/logos/maxim.avif";
+import lenovoLogo from "../../assets/logos/lenovo.avif";
+import hpLogo from "../../assets/logos/hp.avif";
+import hpeLogo from "../../assets/logos/hpe.avif";
+import polyLogo from "../../assets/logos/poly.avif";
+import samsungLogo from "../../assets/logos/samsung.avif";
+import hikvisionLogo from "../../assets/logos/hikvision.avif";
+import tplinkLogo from "../../assets/logos/tp-link.avif";
+import ezvizLogo from "../../assets/logos/ezviz.avif";
+import adobeLogo from "../../assets/logos/adobe.avif";
+import ubiquitiLogo from "../../assets/logos/ubiquiti.avif";
+import forzaLogo from "../../assets/logos/forza.avif";
+import salicruLogo from "../../assets/logos/salicru.avif";
+import dlinkLogo from "../../assets/logos/d-link.avif";
+import microsoftLogo from "../../assets/logos/microsoft.avif";
 
+const logos = [
+  { src: lenovoLogo, alt: "Lenovo" },
+  { src: hpLogo, alt: "HP" },
+  { src: hpeLogo, alt: "HPE" },
+  { src: polyLogo, alt: "Poly" },
+  { src: samsungLogo, alt: "Samsung" },
+  { src: hikvisionLogo, alt: "Hikvision" },
+  { src: tplinkLogo, alt: "TP-Link" },
+  { src: ezvizLogo, alt: "Ezviz" },
+  { src: adobeLogo, alt: "Adobe" },
+  { src: ubiquitiLogo, alt: "Ubiquiti" },
+  { src: forzaLogo, alt: "Forza" },
+  { src: salicruLogo, alt: "Salicru" },
+  { src: dlinkLogo, alt: "D-Link" },
+  { src: microsoftLogo, alt: "Microsoft" },
+];
 ---
-<section class="section-standard" id="carousel-section">
-    <div class="container-main mb-12 md:mb-16 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-center text-white tracking-wide">
-            Alianzas Estratégicas
-        </h2>
-    </div>
-    
-    <div class="container-main">
-        <div class="logos-mask overflow-hidden relative">
-            <div class="flex w-max animate-scroll gap-32 items-center py-4">
-            <div class="flex w-max animate-scroll gap-32 items-center py-4">
-                <div class="flex items-center gap-24 shrink-0 grayscale hover:grayscale-0 transition-all duration-500">
-                    <Image src={maximLogo} alt="Maxim" height={160} quality="high" class="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100" style="max-width: 170px; transform: scale(1.955);" loading="lazy" />
-                    <Image src={deltronLogo} alt="Deltron" height={160} quality="high" class="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100" style="max-width: 260px; transform: scale(1.0695);" loading="lazy" />
-                    <Image src={ingramLogo} alt="Ingram" height={160} quality="high" class="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100" style="max-width: 200px; transform: scale(1.357);" loading="lazy" />
-                    <Image src={intcomexLogo} alt="Intcomex" height={160} quality="high" class="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100" style="max-width: 310px; transform: scale(0.828);" loading="lazy" />
-                </div>
-                
-                <div class="flex items-center gap-24 shrink-0 grayscale hover:grayscale-0 transition-all duration-500">
-                    <Image src={maximLogo} alt="Maxim" height={160} quality="high" class="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100" style="max-width: 170px; transform: scale(1.955);" loading="lazy" />
-                    <Image src={deltronLogo} alt="Deltron" height={160} quality="high" class="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100" style="max-width: 260px; transform: scale(1.0695);" loading="lazy" />
-                    <Image src={ingramLogo} alt="Ingram" height={160} quality="high" class="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100" style="max-width: 200px; transform: scale(1.357);" loading="lazy" />
-                    <Image src={intcomexLogo} alt="Intcomex" height={160} quality="high" class="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100" style="max-width: 310px; transform: scale(0.828);" loading="lazy" />
-                </div>
 
-                <div class="flex items-center gap-24 shrink-0 grayscale hover:grayscale-0 transition-all duration-500">
-                    <Image src={maximLogo} alt="Maxim" height={160} quality="high" class="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100" style="max-width: 170px; transform: scale(1.955);" loading="lazy" />
-                    <Image src={deltronLogo} alt="Deltron" height={160} quality="high" class="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100" style="max-width: 260px; transform: scale(1.0695);" loading="lazy" />
-                    <Image src={ingramLogo} alt="Ingram" height={160} quality="high" class="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100" style="max-width: 200px; transform: scale(1.357);" loading="lazy" />
-                    <Image src={intcomexLogo} alt="Intcomex" height={160} quality="high" class="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100" style="max-width: 310px; transform: scale(0.828);" loading="lazy" />
-                </div>
-            </div>
-        </div>
+<section class="partners-section" id="carousel-section">
+
+  <div class="container-main">
+
+    <div class="text-center mb-14 md:mb-16">
+      <span class="eyebrow">Partners Tecnológicos</span>
+      <h2 class="section-heading">Alianzas Estratégicas</h2>
+      <div class="heading-line"></div>
     </div>
+
+    <div class="logos-mask overflow-hidden relative">
+      <div class="flex w-max py-4" id="logos-track">
+
+        <!-- Set 1 -->
+        <div class="flex items-center gap-20 shrink-0 px-10">
+          {logos.map((logo) => (
+            <div class="flex items-center justify-center partner-logo">
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                height={80}
+                quality="high"
+                class="h-10 md:h-14 w-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+
+        <!-- Set 2 -->
+        <div
+          class="flex items-center gap-20 shrink-0 px-10"
+          aria-hidden="true"
+        >
+          {logos.map((logo) => (
+            <div class="flex items-center justify-center partner-logo">
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                height={80}
+                quality="high"
+                class="h-10 md:h-14 w-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <style>
-    .logos-mask {
-        mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+/* ───────────────────────────── */
+/* Section */
+/* ───────────────────────────── */
+
+.partners-section {
+    width: 100%;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background: #f8fafc;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ───────────────────────────── */
+/* Header */
+/* ───────────────────────────── */
+
+.eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: #1279C8;
+    margin-bottom: 0.75rem;
+}
+
+.section-heading {
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #053D8A;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+}
+
+.heading-line {
+    width: 3rem;
+    height: 4px;
+    background: #1279C8;
+    margin: 0 auto;
+    border-radius: 9999px;
+}
+
+/* ───────────────────────────── */
+/* Mask */
+/* ───────────────────────────── */
+
+.logos-mask {
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+    );
+}
+
+/* ───────────────────────────── */
+/* Track Animation */
+/* ───────────────────────────── */
+
+#logos-track {
+    animation: scroll-logos 28s linear infinite;
+}
+
+/* ───────────────────────────── */
+/* Logos */
+/* ───────────────────────────── */
+
+.partner-logo {
+    flex-shrink: 0;
+}
+
+.partner-logo img {
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+}
+
+/* ───────────────────────────── */
+/* Animation */
+/* ───────────────────────────── */
+
+@keyframes scroll-logos {
+    0% {
+        transform: translateX(0);
     }
 
-    .animate-scroll {
-        animation: scroll 30s linear infinite;
+    100% {
+        transform: translateX(-50%);
     }
-    
-    @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-33.33%); } /* Adjusted for 3 sets */
-    }
+}
 </style>

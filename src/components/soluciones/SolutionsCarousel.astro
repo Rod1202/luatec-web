@@ -10,302 +10,250 @@ import rentalImg from '../../assets/services_img/alquiler_computo.avif';
 const solutions = [
   {
     title: 'Cloud e Infraestructura',
-    description: 'Migración cloud, redes y servidores escalables para máxima disponibilidad.',
+    description: 'Diseño y escalamiento de entornos cloud seguros y resilientes para operaciones críticas.',
     image: cloudImg,
-    color: '#053D8A'
+    icon: 'dns',
+    cta: 'Solicitar asesoría',
   },
   {
     title: 'Venta de Hardware y Equipamiento',
-    description: 'Equipos, accesorios y repuestos tecnológicos adaptados a cada necesidad.',
+    description: 'Suministro de equipos de alta gama y componentes de última generación para servidores y estaciones.',
     image: hardwareImg,
-    color: '#053D8A'
+    icon: 'memory',
+    cta: 'Ver catálogo',
   },
   {
     title: 'Soporte Técnico y Mantenimiento',
-    description: 'Soporte especializado, diagnóstico rápido y mantenimiento preventivo.',
+    description: 'Resolución inmediata de incidencias y mantenimiento preventivo para su tranquilidad operativa.',
     image: supportImg,
-    color: '#053D8A'
+    icon: 'build',
+    cta: 'Contactar soporte',
   },
   {
     title: 'Consultoría de TI e Infraestructura',
-    description: 'Estrategia tecnológica, optimización de infraestructura y crecimiento digital empresarial.',
+    description: 'Asesoramiento estratégico para alinear su tecnología con los objetivos comerciales de su empresa.',
     image: consultingImg,
-    color: '#053D8A'
+    icon: 'groups',
+    cta: 'Agendar cita',
   },
   {
     title: 'Ciberseguridad',
-    description: 'Protección avanzada de datos con monitoreo, cifrado y control de accesos.',
+    description: 'Protección integral contra amenazas emergentes y auditorías de seguridad proactivas.',
     image: cyberImg,
-    color: '#053D8A'
+    icon: 'security',
+    cta: 'Blindar activos',
   },
   {
     title: 'Alquiler de equipos de cómputo',
-    description: 'Equipos tecnológicos en alquiler flexible para proyectos y operaciones temporales.',
+    description: 'Soluciones flexibles de leasing tecnológico para proyectos temporales o escalado rápido.',
     image: rentalImg,
-    color: '#053D8A'
-  }
+    icon: 'laptop_mac',
+    cta: 'Consultar planes',
+  },
 ];
 ---
 
 <section class="section-standard" id="soluciones">
   <div class="container-main">
-    <div class="text-center mb-16 md:mb-20">
-      <h2 class="text-3xl md:text-4xl font-bold text-white tracking-wide mb-2 md:mb-4">Nuestras Soluciones</h2>
+
+    <!-- Header -->
+    <div class="text-center mb-14 md:mb-16">
+      <span class="eyebrow">Excelencia Técnica</span>
+      <h2 class="section-heading">Nuestras Soluciones</h2>
+      <div class="heading-line"></div>
     </div>
 
-    <div class="carousel-wrapper relative overflow-hidden py-4">
-      <div class="carousel-track flex transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform items-center h-[480px] md:h-[540px]" id="track">
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {solutions.map((solution) => (
+        <div class="solution-card">
 
-        {solutions.map((solution, index) => (
-          <div class="card relative flex-shrink-0 cursor-pointer overflow-hidden rounded-[2rem] border border-white/10 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] flex flex-col group bg-[#053D8A]" data-index={index}>
-            
-            <div class="absolute inset-0 h-[65%] w-full z-0">
-              <Image src={solution.image} alt={solution.title} class="w-full h-full object-cover transition-transform duration-700" />
-            </div>
-            <div class="absolute inset-0 z-0 gradient-overlay transition-colors duration-500 rounded-[2rem]" style={`background: linear-gradient(to bottom, transparent 0%, transparent 20%, ${solution.color} 65%, ${solution.color} 100%);`}></div>
+          <!-- Imagen de fondo absoluta -->
+          <Image
+            src={solution.image}
+            alt={solution.title}
+            class="card-img"
+            loading="lazy"
+          />
 
-            <div class="relative z-10 flex-1 w-full flex flex-col items-start justify-end px-7 pb-8 pt-[55%] text-left">
-              <div class="flex flex-col gap-2 w-full mb-4">
-                <span class="text-[0.65rem] font-bold uppercase tracking-[0.2em] mb-1 text-white/50">Solución</span>
-                <h3 class="text-[1.5rem] md:text-[1.75rem] font-bold leading-[1.15] tracking-tight pr-2 transition-colors [text-wrap:balance] text-white group-hover:text-blue-200">
-                  {solution.title}
-                </h3>
-                <p class="text-[0.85rem] md:text-[0.9rem] leading-relaxed max-w-[90%] font-normal [text-wrap:pretty] text-white/70">
-                  {solution.description}
-                </p>
-              </div>
-              
-              <a href="/formulario" class="group/link text-[0.8rem] font-semibold transition-all inline-flex items-center gap-2 hover:translate-x-1 text-white">
-                Solicitar información
-                <span class="material-symbols-outlined text-[1rem] transition-transform group-hover/link:translate-x-1">arrow_right_alt</span>
-              </a>
-            </div>
+          <!-- Gradiente encima de la imagen -->
+          <div class="card-overlay"></div>
+
+          <!-- Contenido encima de todo -->
+          <div class="card-content">
+            <span class="material-symbols-outlined card-icon">
+              {solution.icon}
+            </span>
+            <h3 class="card-title">{solution.title}</h3>
+            <p class="card-description">{solution.description}</p>
+            <a href="/formulario" class="card-link">
+              {solution.cta}
+              <span class="material-symbols-outlined card-link-icon">arrow_right_alt</span>
+            </a>
           </div>
-        ))}
 
-      </div>
+        </div>
+      ))}
     </div>
 
-    <div class="carousel-controls flex items-center justify-center gap-3 mt-4 mb-2 relative z-20 w-full mx-auto">
-      <button class="ctrl-btn w-8 h-8 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white flex items-center justify-center transition-all hover:bg-white/20 hover:border-white hover:scale-105" id="prev" aria-label="Anterior">
-        <span class="material-symbols-outlined text-[1rem]">chevron_left</span>
-      </button>
-      <div class="dots flex gap-1.5 items-center justify-center" id="dots"></div>
-      <button class="ctrl-btn w-8 h-8 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white flex items-center justify-center transition-all hover:bg-white/20 hover:border-white hover:scale-105" id="next" aria-label="Siguiente">
-        <span class="material-symbols-outlined text-[1rem]">chevron_right</span>
-      </button>
-    </div>
   </div>
 </section>
 
 <style>
-  .carousel-wrapper {
-    clip-path: inset(0 4% 0 4%);
-    overflow: visible;
-    position: relative;
+  /* ── Header ── */
+  .eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: #1279C8;
+    margin-bottom: 0.75rem;
   }
 
-  .carousel-wrapper::before,
-  .carousel-wrapper::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 20%;
-      z-index: 15;
-      pointer-events: none;
-    }
-
-    .carousel-wrapper::before {
-        left: 0;
-        background: linear-gradient(to right, #053D8A 0%, transparent 100%);
-    }
-
-    .carousel-wrapper::after {
-        right: 0;
-        background: linear-gradient(to left, #053D8A 0%, transparent 100%);
-    }
-
-    .carousel-track {
-      gap: 50px;
-    }
-
-  .card {
-      flex: 0 0 340px;
-      max-width: 340px;
-      height: 480px;
-      box-shadow: 
-        0 4px 24px rgba(0, 0, 0, 0.3),
-        inset 0 1px 1px rgba(255, 255, 255, 0.05);
-      /* Default: inactive state (distant cards) */
-      opacity: 0.4;
-      transform: scale(0.85);
-      filter: blur(2px);
-      z-index: 1;
-      will-change: transform, opacity, filter, box-shadow;
+  .section-heading {
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #053D8A;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
   }
 
-  .card.active {
-      filter: blur(0px);
-      opacity: 1;
-      transform: scale(1.15) translateY(-10px);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-      z-index: 10;
-      border-color: rgba(255,255,255,0.2);
+  .heading-line {
+    width: 3rem;
+    height: 4px;
+    background: #1279C8;
+    margin: 0 auto;
+    border-radius: 9999px;
   }
 
-  .card.adjacent {
-    filter: blur(1.5px);
-    opacity: 0.7;
-    transform: scale(0.92);
-  }
-
-  /* Cambia el fondo general y el degradado interno cuando la tarjeta está seleccionada al frente */
-  .card.active {
-     background-color: #053D8A !important;
-  }
-
-  .card.active .gradient-overlay {
-      background: linear-gradient(to bottom, transparent 0%, transparent 15%, #053D8A 65%, #053D8A 100%) !important;
-  }
-
-  .dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
+  /* ── Card contenedor ── */
+  .solution-card {
+    position: relative;        /* contexto para hijos absolutos */
+    height: 420px;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background-color: #053D8A;
     cursor: pointer;
-    transition: all 0.3s ease;
+    box-shadow:
+      0 4px 20px rgba(5, 61, 138, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                box-shadow  0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 
-  .dot.active {
-    background: #ffffff; /* White active dot */
-    width: 16px;
-    border-radius: 3px;
+  .solution-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 15px 40px rgba(5, 61, 138, 0.35),
+      inset 0 1px 1px rgba(255, 255, 255, 0.08);
   }
 
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .card {
-        flex: 0 0 280px;
-        max-width: 280px;
-        height: 420px;
-    }
-    .card.active {
-        transform: scale(1.1) translateY(-5px);
-    }
-    .carousel-track {
-        gap: 20px;
-    }
-    .carousel-wrapper::before,
-    .carousel-wrapper::after {
-        width: 8%;
-    }
+  /* ── Imagen: cubre toda la card ── */
+  .card-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+    z-index: 0;
+  }
+
+  .solution-card:hover .card-img {
+    transform: scale(1.05);
+  }
+
+  /* ── Overlay gradiente: de transparente arriba a azul abajo ── */
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba(5, 61, 138, 0.05) 0%,
+      rgba(5, 61, 138, 0.55) 45%,
+      rgba(5, 61, 138, 0.97) 100%
+    );
+    transition: background 0.5s ease;
+  }
+
+  .solution-card:hover .card-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(5, 61, 138, 0.0)  0%,
+      rgba(5, 61, 138, 0.5)  45%,
+      rgba(5, 61, 138, 1.0)  100%
+    );
+  }
+
+  /* ── Contenido: pegado al fondo de la card ── */
+  .card-content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;   /* todo el texto va abajo */
+    padding: 1.5rem;
+  }
+
+  /* ── Ícono ── */
+  .card-icon {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 0.6rem;
+    transition: color 0.3s ease;
+  }
+
+  .solution-card:hover .card-icon {
+    color: #1279C8;
+  }
+
+  /* ── Título ── */
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+    margin-bottom: 0.6rem;
+    transition: color 0.3s ease;
+  }
+
+  .solution-card:hover .card-title {
+    color: #a8d4f5;
+  }
+
+  /* ── Descripción ── */
+  .card-description {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  /* ── CTA link ── */
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .card-link:hover {
+    color: #1279C8;
+  }
+
+  .card-link-icon {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .card-link:hover .card-link-icon {
+    transform: translateX(4px);
   }
 </style>
-
-<script>
-  const track = document.getElementById('track');
-  const dotsContainer = document.getElementById('dots');
-  const cards = Array.from(track?.querySelectorAll('.card') || []);
-  const prevBtn = document.getElementById('prev');
-  const nextBtn = document.getElementById('next');
-  
-  const total = cards.length;
-  let current = 1;
-
-  // Create dots
-  cards.forEach((_, i) => {
-    const d = document.createElement('div');
-    d.className = 'dot';
-    d.addEventListener('click', () => goTo(i));
-    if (dotsContainer) dotsContainer.appendChild(d);
-  });
-
-  function updateCards() {
-    cards.forEach((card, i) => {
-      card.classList.remove('active', 'adjacent');
-      if (i === current) {
-        card.classList.add('active');
-      } else if (Math.abs(i - current) === 1) {
-        card.classList.add('adjacent');
-      }
-    });
-    
-    document.querySelectorAll('.dot').forEach((d, i) => {
-        if (i === current) {
-            d.classList.add('active');
-        } else {
-            d.classList.remove('active');
-        }
-    });
-  }
-
-  function goTo(index) {
-    if (index < 0 || index >= total) return;
-    current = index;
-
-    const wrapper = document.querySelector('.carousel-wrapper');
-    if (!wrapper || !track || cards.length === 0) return;
-
-    const card = cards[current];
-    
-    // 1. Get real visual dimensions
-    const wrapperRect = wrapper.getBoundingClientRect();
-    const cardRect = card.getBoundingClientRect();
-
-    // 2. Read the current transform state safely
-    const style = window.getComputedStyle(track);
-    const matrix = new DOMMatrixReadOnly(style.transform);
-    const currentTranslateX = matrix.m41;
-
-    // 3. Calculate the visual center delta
-    const wrapperCenter = wrapperRect.left + (wrapperRect.width / 2);
-    const cardCenter = cardRect.left + (cardRect.width / 2);
-    
-    // The visual offset needed to center the card
-    const offset = wrapperCenter - cardCenter;
-
-    track.style.transform = `translateX(${currentTranslateX + offset}px)`;
-
-    updateCards();
-  }
-
-  // Initial setup
-  updateCards();
-  
-  // Wait for layout to be stable
-  setTimeout(() => {
-    if (track) track.style.transition = 'none';
-    goTo(current);
-    setTimeout(() => {
-        if (track) track.style.transition = '';
-    }, 50);
-  }, 100);
-
-  window.addEventListener('resize', () => {
-     if (track) track.style.transition = 'none';
-     goTo(current);
-     setTimeout(() => {
-        if (track) track.style.transition = '';
-     }, 50);
-  });
-
-  if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
-  if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
-
-  // Touch support
-  let startX = 0;
-  if (track) {
-      track.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
-      track.addEventListener('touchend', (e) => {
-        const diff = startX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
-      });
-  }
-
-  // Click on cards to focus them
-  cards.forEach((card, i) => {
-    card.addEventListener('click', () => goTo(i));
-  });
-</script>

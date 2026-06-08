@@ -1,6 +1,4 @@
 ---
-import { SEO } from "astro-seo";
-import { Image } from "astro:assets";
 import "../styles/global.css";
 
 interface Props {
@@ -25,29 +23,18 @@ const {
 		<link rel="icon" type="image/x-icon" href="/luatec.ico" />
 		<meta name="generator" content={Astro.generator} />
         
-        <SEO
-            title={title}
-            description={description}
-            canonical={canonical}
-            openGraph={{
-                basic: {
-                    title: title,
-                    type: "website",
-                    image: image,
-                },
-                image: {
-                    alt: "Luatec Solutions Logo",
-                },
-            }}
-            extend={{
-                meta: [
-                    { name: "twitter:card", content: "summary_large_image" },
-                    { name: "twitter:title", content: title },
-                    { name: "twitter:description", content: description },
-                    { name: "twitter:image", content: image },
-                ],
-            }}
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        {canonical && <link rel="canonical" href={canonical} />}
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={image} />
+        <meta property="og:image:alt" content="Luatec Solutions Logo" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={image} />
 
         <link href="https://fonts.googleapis.com" rel="preconnect"/>
         <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -58,5 +45,3 @@ const {
 		<slot />
 	</body>
 </html>
-
-

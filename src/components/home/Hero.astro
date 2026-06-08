@@ -5,61 +5,122 @@ import GradientText from '../GradientText';
 <section
   class="hero relative w-full min-h-[100dvh] flex flex-col justify-center overflow-hidden pt-[110px] pb-12"
   id="inicio">
-    <!-- Hero Content -->
+
     <div class="hero-content w-full max-w-7xl mx-auto px-6 relative z-10">
         <div class="max-w-3xl mt-4 md:mt-8">
-            <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.1] mb-8 text-white">
+            <h1 class="hero-title">
                 Infraestructura <br/>
                 que convierte tu 
                 <GradientText 
-                  client:load 
-                  colors={["#06b6d4", "#3b82f6", "#60a5fa", "#06b6d4"]} 
-                  animationSpeed={8} 
-                  showBorder={false} 
-                  className="font-extrabold"
+                    client:load 
+                    colors={["#1279C8", "#053D8A", "#1279C8", "#053D8A"]} 
+                    animationSpeed={8} 
+                    showBorder={false} 
+                    className="font-extrabold"
                 >
-                  visión
+                    visión
                 </GradientText> 
                 en resultados
             </h1>
-            <p class="text-lg md:text-xl text-slate-100 mb-12 max-w-2xl leading-relaxed">
+
+            <p class="hero-subtitle">
                 Diseñamos ecosistemas digitales de alto rendimiento para que tu tecnología sea tu mayor ventaja competitiva.
             </p>
             
             <div class="flex flex-col items-start gap-4">
-                <a 
-                    href="/formulario"        
-                    class="relative inline-flex items-center justify-center px-8 py-3.5 md:px-10 md:py-4 rounded-full bg-blue-600 text-white shadow-[0_3px_5px_-1px_rgba(37,99,235,0.4),0_6px_10px_0_rgba(37,99,235,0.2),0_1px_18px_0_rgba(37,99,235,0.12)] hover:bg-blue-600/90 hover:shadow-[0_5px_5px_-3px_rgba(37,99,235,0.4),0_8px_10px_1px_rgba(37,99,235,0.2),0_3px_14_2px_rgba(37,99,235,0.12)] transition-all duration-300 active:scale-95 overflow-hidden group"
-                >
-                    <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none"></div>
+                <a href="/formulario" class="hero-cta group">
+                    <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none rounded-full"></div>
                     <div class="relative z-10 flex items-center justify-center gap-3">
-                        <span class="text-base md:text-[1.1rem] font-medium tracking-wide">Conoce más</span>
-                        <span class="material-symbols-outlined text-[20px] md:text-[24px] transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+                        <span class="hero-cta-label">Conoce más</span>
+                        <span class="material-symbols-outlined hero-cta-icon">arrow_forward</span>
                     </div>
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Gradients removed as requested -->
-
     <script>
-        // Parallax effect
         window.addEventListener('scroll', () => {
             const hero = document.getElementById('inicio');
             if (hero) {
-                const scrollPosition = window.scrollY;
-                hero.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+                hero.style.backgroundPositionY = `${window.scrollY * 0.5}px`;
             }
         });
 
-        // "Conoce más" clean scroll without updating URL hash
         const ctaButton = document.getElementById('cta-scroll');
         const targetSection = document.getElementById('impacto-numeros');
-
         ctaButton?.addEventListener('click', (e) => {
             e.preventDefault();
             targetSection?.scrollIntoView({ behavior: 'smooth' });
         });
     </script>
 </section>
+
+<style>
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: #ffffff;  /* blanco sobre fondo oscuro */
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.75);  /* blanco semitransparente */
+    margin-bottom: 3rem;
+    max-width: 42rem;
+    line-height: 1.7;
+}
+
+  .hero-cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    border-radius: 9999px;
+    background-color: #053D8A;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(5, 61, 138, 0.4);
+    overflow: hidden;
+    transition: background-color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.3s ease;
+  }
+
+  .hero-cta:hover {
+    background-color: #1279C8;
+    box-shadow: 0 8px 25px rgba(5, 61, 138, 0.5);
+    transform: translateY(-3px);
+  }
+
+  .hero-cta:active {
+    transform: scale(0.97);
+  }
+
+  .hero-cta-label {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  @media (min-width: 768px) {
+    .hero-cta {
+      padding: 1rem 2.5rem;
+    }
+    .hero-cta-label {
+      font-size: 1.1rem;
+    }
+  }
+
+  .hero-cta-icon {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .hero-cta:hover .hero-cta-icon {
+    transform: translateX(4px);
+  }
+</style>
