@@ -9,7 +9,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://luatec.lat',
+  site: 'https://luatecsolutions.com',
   vite: {
     plugins: [tailwindcss()]
   },
