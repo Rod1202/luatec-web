@@ -1,0 +1,77 @@
+---
+const phone = "51929706087";
+const message = encodeURIComponent("Hola, solicito más información");
+const waUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${message}`;
+---
+
+<!-- Botón flotante WhatsApp -->
+<div id="wa-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+
+  <!-- Burbuja de chat -->
+  <div id="wa-bubble" class="hidden opacity-0 translate-y-2 transition-all duration-300 bg-white rounded-2xl shadow-2xl p-4 w-64 border border-slate-100">
+    <div class="flex items-center gap-3 mb-3">
+      <div class="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-white text-xl font-bold">L</div>
+      <div>
+        <p class="text-sm font-bold text-slate-800">Luatec Solutions</p>
+        <p class="text-[10px] text-green-500 font-medium flex items-center gap-1">
+          <span class="w-1.5 h-1.5 bg-green-500 rounded-full inline-block"></span> En línea
+        </p>
+      </div>
+    </div>
+    <div class="bg-slate-50 rounded-xl rounded-tl-none px-4 py-3 text-sm text-slate-700 mb-3">
+      👋 ¡Hola! ¿En qué podemos ayudarte hoy?
+    </div>
+    <a
+      href={waUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="block w-full text-center bg-[#25D366] hover:bg-[#20b858] text-white font-bold text-sm py-2.5 rounded-xl transition-colors"
+    >
+      Iniciar conversación
+    </a>
+  </div>
+
+  <!-- Botón principal -->
+  <button
+    id="wa-btn"
+    aria-label="Abrir WhatsApp"
+    class="w-14 h-14 bg-[#25D366] hover:bg-[#20b858] rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.4)] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95"
+  >
+    <!-- Ícono WhatsApp SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" class="w-7 h-7">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.471 2.027 7.774L0 32l8.437-2.01A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.267 13.267 0 01-6.75-1.843l-.484-.287-5.01 1.194 1.275-4.874-.317-.5A13.233 13.233 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.862c-.398-.199-2.354-1.162-2.72-1.294-.365-.133-.631-.199-.897.199-.265.398-1.03 1.294-1.262 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.62-3.203-1.977-1.184-1.056-1.983-2.36-2.215-2.758-.232-.398-.025-.613.174-.811.179-.178.398-.465.597-.697.2-.232.265-.398.398-.664.133-.265.066-.497-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.777-.653-.672-.897-.684l-.764-.013c-.265 0-.697.1-1.063.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.854 1.626 4.12c.2.265 2.808 4.287 6.803 6.014.951.41 1.693.655 2.272.839.954.303 1.823.26 2.51.158.766-.114 2.354-.962 2.687-1.891.332-.929.332-1.726.232-1.891-.099-.166-.365-.265-.763-.464z"/>
+    </svg>
+    <!-- Pulso animado -->
+    <span class="absolute w-14 h-14 rounded-full bg-[#25D366] animate-ping opacity-30 pointer-events-none"></span>
+  </button>
+
+</div>
+
+<script>
+  const btn = document.getElementById('wa-btn');
+  const bubble = document.getElementById('wa-bubble');
+
+  btn?.addEventListener('click', () => {
+    const isHidden = bubble?.classList.contains('hidden');
+    if (isHidden) {
+      bubble?.classList.remove('hidden');
+      setTimeout(() => {
+        bubble?.classList.remove('opacity-0', 'translate-y-2');
+      }, 10);
+    } else {
+      bubble?.classList.add('opacity-0', 'translate-y-2');
+      setTimeout(() => {
+        bubble?.classList.add('hidden');
+      }, 300);
+    }
+  });
+
+  // Cerrar si se hace clic fuera
+  document.addEventListener('click', (e) => {
+    const widget = document.getElementById('wa-widget');
+    if (!widget?.contains(e.target as Node)) {
+      bubble?.classList.add('opacity-0', 'translate-y-2');
+      setTimeout(() => bubble?.classList.add('hidden'), 300);
+    }
+  });
+</script>
