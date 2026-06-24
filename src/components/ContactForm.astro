@@ -125,4 +125,53 @@ import { FaLinkedin, FaWhatsapp, FaInstagram } from "react-icons/fa";
         </div>
         </div>
     </div>
+
+    <script>
+  const form = document.querySelector('form');
+  const btn = form?.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const nombre   = (document.getElementById('first-name') as HTMLInputElement).value;
+    const apellido = (document.getElementById('last-name') as HTMLInputElement).value;
+    const email    = (document.getElementById('email') as HTMLInputElement).value;
+    const telefono = (document.getElementById('phone') as HTMLInputElement).value;
+    const mensaje  = (document.getElementById('message') as HTMLTextAreaElement).value;
+
+    if (btn) btn.textContent = 'Enviando...';
+
+    try {
+      const res = await fetch('/contact.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nombre, apellido, email, telefono, mensaje })
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        mostrarMensaje('✅ ¡Mensaje enviado! Te contactaremos pronto.', '#16a34a');
+        form.reset();
+      } else {
+        mostrarMensaje('❌ Error al enviar. Intenta nuevamente.', '#dc2626');
+      }
+    } catch {
+      mostrarMensaje('❌ Error de conexión.', '#dc2626');
+    } finally {
+      if (btn) btn.textContent = 'Solicitar Información';
+    }
+  });
+
+  function mostrarMensaje(texto: string, color: string) {
+    const existing = document.getElementById('form-status');
+    if (existing) existing.remove();
+    const p = document.createElement('p');
+    p.id = 'form-status';
+    p.textContent = texto;
+    p.style.cssText = `color:${color};font-size:0.875rem;font-weight:600;margin-top:1rem;`;
+    document.querySelector('.pt-4')?.appendChild(p);
+  }
+</script>
+
 </section>
